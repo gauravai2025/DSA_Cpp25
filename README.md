@@ -1,4 +1,4 @@
-# DSA_-Cpp25
+# DSA_Cpp25
 
 
 This is a repository for Data Structures and Algorithms in C++ programming languages. This repository contains solutions to popular Data Structures and Algorithms problems. The repository has been organized by the programming language used in the implementation.
