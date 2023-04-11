@@ -1,10 +1,10 @@
 #include<bits/stdc++.h>
 using namespace std;
 int main(){
-    cout<<"enter number\n";
+    cout<<"enter number to find power of 2\n";
     int n;
     cin>>n;
-    long long int  a=1<<n;
-    cout<<a;
+    long long int  val=1<<n;
+    cout<<val;
     return 0;
 }
