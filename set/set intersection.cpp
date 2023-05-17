@@ -3,9 +3,7 @@ using namespace std;
 
 int main() {
 
-	int t;
-	cin>>t;
-	while(t--){
+	
 	    int n,m,k;
 	    cin>>n>>m>>k;
 	    set<int>s1;
@@ -30,9 +28,21 @@ int main() {
                  std::inserter(intersect, intersect.begin()));
                  
 	   cout<<intersect.size()<<" "<<n-su.size()<<endl;
+
+	     for(auto it:intersect
+		 	     ){
+	         cout<<it<<" ";
+	     }
 	    
+	    cout<<endl;
+
+		 for(auto it:su
+		 	     ){
+	         cout<<it<<" ";
+	     }
 	    
-	}
+	    cout<<endl;
+	
 	
 	return 0;
 }
