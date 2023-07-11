@@ -4,7 +4,7 @@ int search(int a[],int size,int key){
      int start=0,end=size-1;
 while(start<=end){
    
-  int   mid=star+(end-start)/2;
+  int   mid=start+(end-start)/2;
         if(a[mid]==key){
         return mid+1;}
         

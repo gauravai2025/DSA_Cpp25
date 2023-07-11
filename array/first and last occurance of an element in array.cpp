@@ -1,4 +1,4 @@
-#include<vector>
+#include<bits/stdc++.h>
 using namespace std;
 int firstOcc(vector<int>& arr, int n, int key) {
 
@@ -53,4 +53,20 @@ pair<int, int> firstAndLastPosition(vector<int>& arr, int n, int k)
     p.second = lastOcc(arr, n, k);
     
     return p;
+}
+int main(){
+    cout<<"enter number of element:\n";
+   int n;
+   cin>>n;
+   vector<int>arr(n);
+   cout<<"enter element of array\n";
+   for(int  i=0;i<n;i++){
+    cin>>arr[i];
+   }
+   cout<<"enter element to find first and last occurance\n";
+    int k;
+    cin>>k;
+pair<int, int>ans=firstAndLastPosition( arr, n,  k)
+
+
 }
