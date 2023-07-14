@@ -1,0 +1,1 @@
+{"name":"Local: redudant bracket","url":"d:\\DSA_Cpp25\\stack\\redudant bracket.cpp","tests":[{"id":1689269776487,"input":"(a+b)+((c*d))","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\DSA_Cpp25\\stack\\redudant bracket.cpp","group":"local","local":true}
