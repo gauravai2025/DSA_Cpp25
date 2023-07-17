@@ -1,0 +1,1 @@
+{"name":"Local: infix to prefix","url":"d:\\DSA_Cpp25\\stack\\infix to prefix.cpp","tests":[{"id":1689535274487,"input":"A * B + C / D","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\DSA_Cpp25\\stack\\infix to prefix.cpp","group":"local","local":true}

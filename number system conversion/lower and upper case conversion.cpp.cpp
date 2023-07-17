@@ -6,12 +6,12 @@ int chartodigit(char ch){
     return val;
 }
 char tolowercase(char ch){
-   ch=ch-'A'+'a';
+   ch=ch-'A'+'a'; // ch=ch+32;
     return ch;
     
 }
 char touppercase(char ch){
-    ch=ch-'a'+'A';
+    ch=ch-'a'+'A'; // ch=ch-32;
     return ch;
 }
     int main(){

@@ -33,5 +33,25 @@ if(ptlow1==(a+size))
 cout<<"not found\n";
 else
 cout<<"lower bound of "<<val<<": "<<(*ptlow1)<<endl;
+cout<<"position of lower bound of "<<val<<": "<<(ptlow-a)<<endl;
+cout<<"position of upper bound of "<<val<<": "<<(ptup-a)<<endl;
+vector<int> v(a,a+size);  // copy array to vector
+vector<int>::iterator itlow=lower_bound(v.begin(),v.end(),val); // return iterator of equal or next  greater value element
+if(itlow==v.end())
+cout<<"not found\n";
+else
+cout<<"lower bound of "<<val<<": "<<(*itlow)<<endl;
+
+vector<int>::iterator itup=upper_bound(v.begin(),v.end(),val);//return iterator of next greater value element
+if(itup==v.end())
+cout<<"not found\n";
+else
+cout<<"upper  bound of "<<val<<" :"<<(*itup)<<endl;
+vector<int>::iterator itlow1=lower_bound(v.begin()+2,v.end(),val); // check from 3rd element to last element in sorted order
+if(itlow1==v.end())
+cout<<"not found\n";
+else
+cout<<"lower bound of "<<val<<": "<<(*itlow1)<<endl;
+cout<<"position of lower bound of "<<val<<": "<<(itlow-v.begin())<<endl;
     return 0;
 }

@@ -1,0 +1,1 @@
+{"name":"Local: postfix evaluation","url":"d:\\DSA_Cpp25\\stack\\postfix evaluation.cpp","tests":[{"id":1689521387908,"input":"9\n4 6 + 2 / 5 * 7 +","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\DSA_Cpp25\\stack\\postfix evaluation.cpp","group":"local","local":true}
