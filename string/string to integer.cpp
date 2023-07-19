@@ -23,5 +23,9 @@ int main()
      int val=stoi(s); //string to integer inbuilt function
      cout<<val<<endl;
 cout<<stint(s);
+   val=stol(s); //string to long long integer inbuilt function
+     cout<<val<<endl;
+        val=stoul(s); //string to unsigned long long integer inbuilt function
+     cout<<val<<endl;
     return 0;
 }
