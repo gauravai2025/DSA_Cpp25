@@ -14,8 +14,6 @@ class node {
     }
 };
 
-
-
 node* buildTree(node* root) {
 
     cout << "Enter the data: " << endl;
@@ -36,39 +34,46 @@ node* buildTree(node* root) {
 }
 
 
-int max_hgt(node*root){
-    if(root == NULL)
+int count_node(node* root){
+    if(root==NULL)
     return 0;
-    int left=max_hgt(root->left);
-    int right =max_hgt(root->right);
-    return 1+max(left,right);
+    return 1+count_node(root->left)+count_node(root->right);
 
 }
 
-    bool isBalanced(node* root) {
-        if(root==NULL)
-        return 1;
-  int left=isBalanced(root->left);
-    int right=isBalanced(root->right);
-        if(left && right &&abs(max_hgt(root->left)-max_hgt(root->right))<=1)
-        return 1;
-        else
-        return 0;
-      
+
+bool isCBT(node*root,int index,int cnt){
+    if(root==NULL)
+    return true;
+
+    if(index>=cnt)
+    return false;
+
+    bool left=isCBT(root->left,2*index+1,cnt);
+    bool right=isCBT(root->right,2*index+2,cnt);
+        return left && right;
+
+
+}
+    bool isCompleteTree(node* root) {
+     int cnt= count_node(root);
+    return isCBT(root,0,cnt);
+
     }
+
 
  
 int main()
 {
-   node* root = NULL;
-   // example input  1 3 7-1 -1 11 -1 -1  5 17 -1 -1 -1 
+
+  node* root = NULL;
+   // example input complete binary tree  1 2 4 -1 -1 5 -1 -1 3 6 -1 -1 -1
     //creating a Tree
     root = buildTree(root);
- if(isBalanced(root))
- cout<<"balanced tree\n";
+    if(isCompleteTree(root))
+    cout<<"complete binary tree\n";
     else
-    cout<<"not balanced tree\n";
- 
- 
+    cout<<"not complete binary tree\n";
+
     return 0;
 }

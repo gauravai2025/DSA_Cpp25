@@ -1,0 +1,1 @@
+{"name":"Local: kadanes's algorithm","url":"d:\\DSA_Cpp25\\algorithm\\kadanes's algorithm.cpp","tests":[{"id":1690311371944,"input":"5\n5 -2 3 0 1","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\DSA_Cpp25\\algorithm\\kadanes's algorithm.cpp","group":"local","local":true}

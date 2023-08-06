@@ -1,0 +1,1 @@
+{"name":"Local: longest common prefix","url":"d:\\DSA_Cpp25\\Trie\\longest common prefix.cpp","tests":[{"id":1690340072676,"input":"3\n\"flower\" \"flow\" \"flight\"","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\DSA_Cpp25\\Trie\\longest common prefix.cpp","group":"local","local":true}

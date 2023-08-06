@@ -1,0 +1,1 @@
+{"name":"Local: Rabin - Karp algorithm","url":"d:\\DSA_Cpp25\\string algorithm\\Rabin - Karp algorithm.cpp","tests":[{"id":1690260429644,"input":"\"GEEKSFORGEEKS\"\n\"GEEK\"","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\DSA_Cpp25\\string algorithm\\Rabin - Karp algorithm.cpp","group":"local","local":true}

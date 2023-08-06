@@ -1,0 +1,1 @@
+{"name":"Local: pattern find with two pointer","url":"d:\\DSA_Cpp25\\string algorithm\\pattern find with two pointer.cpp","tests":[{"id":1690306806579,"input":"geeks for geeks\ngeek","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\DSA_Cpp25\\string algorithm\\pattern find with two pointer.cpp","group":"local","local":true}

@@ -1,6 +1,5 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
-
 class node {
     public:
         int data;
@@ -13,8 +12,6 @@ class node {
         this -> right = NULL;
     }
 };
-
-
 
 node* buildTree(node* root) {
 
@@ -36,39 +33,38 @@ node* buildTree(node* root) {
 }
 
 
-int max_hgt(node*root){
-    if(root == NULL)
-    return 0;
-    int left=max_hgt(root->left);
-    int right =max_hgt(root->right);
-    return 1+max(left,right);
-
-}
-
-    bool isBalanced(node* root) {
-        if(root==NULL)
-        return 1;
-  int left=isBalanced(root->left);
-    int right=isBalanced(root->right);
-        if(left && right &&abs(max_hgt(root->left)-max_hgt(root->right))<=1)
+  bool isSameTree(node* p, node* q) {
+        if(p== NULL && q==NULL)
+        return true;
+        if(p==NULL && q!=NULL)
+        return false;
+         if(p!=NULL && q==NULL)
+        return false;
+      bool left=  isSameTree(p->left,q->left);
+bool right=isSameTree(p->right,q->right);
+    bool flag=(p->data==q->data);
+        if(left && right && flag)
         return 1;
         else
-        return 0;
-      
+        return false;
+
     }
 
- 
-int main()
-{
-   node* root = NULL;
+
+int main() {
+
+    node* root1 = NULL;
    // example input  1 3 7-1 -1 11 -1 -1  5 17 -1 -1 -1 
     //creating a Tree
-    root = buildTree(root);
- if(isBalanced(root))
- cout<<"balanced tree\n";
+    root1 = buildTree(root1);
+    
+    node* root2 = NULL;
+   // example input  1 3 7-1 -1 11 -1 -1  5 17 -1 -1 -1 
+    //creating a Tree
+    root2 = buildTree(root2);
+    if(isSameTree(root1,root2))
+    cout<<"same tree\n";
     else
-    cout<<"not balanced tree\n";
- 
- 
-    return 0;
-}
+    cout<<"not same tree\n";
+
+    }

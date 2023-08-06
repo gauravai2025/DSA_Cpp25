@@ -1,10 +1,12 @@
 #include<bits/stdc++.h>
 using namespace std;
-class Node{
+
+ class Node{
     public:
     int data;
     Node*left;
     Node *right;
+
 
 Node(int d){
     this->data=d;
@@ -27,7 +29,6 @@ return root;
 
 }
 
-
 Node* input_data(Node* root){
     cout<<"enter data for root node\n";
     int d;
@@ -40,49 +41,32 @@ Node* input_data(Node* root){
     return root;
 }
 
+void inorder(Node* root,vector<int>&ans){
+            if(root==NULL)
+            return ;
+            inorder(root->left,ans);
+            ans.push_back(root->data);
+            inorder(root->right,ans);
 
- bool search(int d,Node*root){
-    // if(root==NULL)
-    // return 0;
-    Node* temp=root;
- while(temp!=NULL){
-    if(temp->data==d)
-    return 1;
-     if (d>temp->data)
-     temp= temp->right;
-    else
-    temp= root->left;
+}
 
- }
- return 0;
- }
 
- bool search_recursive(int value,Node*root){
-    // base case
-    if(root==NULL)
-    return 0;
-    if(root->data==value)
-     return 1;
-     else if(value>root->data)
-     return search_recursive(value,root->right);
-     else
-    return search_recursive(value,root->left);
 
- }
+    int kthlargest(Node* root, int k) {
+        vector<int>ans;
+        inorder(root,ans);
+        int size=ans.size();
+        return ans[size-k];
+    }
 
- 
 int main()
 {
-
- cout<<"enter data for BST\n";
+    cout<<"enter data for BST\n";
  Node* root=NULL;
- root=input_data(root);
- cout<<"enter element to search\n";
- int element;
- cin>>element;
- cout<<search(element,root)<<" ";
-  cout<<search_recursive(element,root);
-
-
+ root =input_data(root);
+cout<<"enter value of k\n";
+int k;
+cin>>k;
+cout<<"kth largest element: "<<kthlargest(root,k)<<"\n";
     return 0;
 }

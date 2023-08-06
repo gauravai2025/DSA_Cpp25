@@ -13,6 +13,7 @@ Node(int d){
      this->right=NULL;
 }
 };
+
 Node* insert_BST(Node* root,int d){
     // base case
     if(root == NULL){
@@ -27,6 +28,7 @@ Node* insert_BST(Node* root,int d){
 return root;
 
 }
+
 Node* input_data(Node* root){
     cout<<"enter data for root node\n";
     int d;
@@ -39,6 +41,28 @@ Node* input_data(Node* root){
     return root;
 }
 
+void inorder(Node* root,vector<int>&ans) {
+    //base case
+    if(root == NULL) {
+        return ;
+    }
+    inorder(root->left,ans);
+     ans.push_back(root-> data);
+    inorder(root->right,ans);
+}
+
+
+Node* insert_balance_BST(int strt,int end,vector<int>&ans){
+    // base case
+    if(strt>end)
+        return NULL;
+    int mid=(strt+end)/2;
+   Node*  root=new Node(ans[mid]);
+   
+        root->right=insert_balance_BST(mid+1,end,ans);
+        root->left=insert_balance_BST(strt,mid-1,ans);
+return root;
+}
 
  
 int main()
@@ -47,7 +71,10 @@ int main()
  cout<<"enter data for BST\n";
  Node* root=NULL;
  root=input_data(root);
- 
- 
+ vector<int>ans;
+ inorder(root,ans);
+ int size=ans.size();
+ root= insert_balance_BST(0,size-1,ans);
+
     return 0;
 }

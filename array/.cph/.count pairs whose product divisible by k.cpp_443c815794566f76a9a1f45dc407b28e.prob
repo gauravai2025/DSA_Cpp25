@@ -1,0 +1,1 @@
+{"name":"Local: count pairs whose product divisible by k","url":"d:\\DSA_Cpp25\\array\\count pairs whose product divisible by k.cpp","tests":[{"id":1690309241628,"input":"5\n1 4 5 5 4\n5","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\DSA_Cpp25\\array\\count pairs whose product divisible by k.cpp","group":"local","local":true}
