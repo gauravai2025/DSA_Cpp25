@@ -11,6 +11,7 @@ class Graph{
           adj[u].push_back(v);
           // undirected 
           if(direction==0){
+             // create edge from v to u
             adj[v].push_back(u);
             
           }
@@ -18,9 +19,9 @@ class Graph{
     }
 
     void printAdjlist(){
-        for(auto it:adj){
+        for(auto &it:adj){
             cout<<it.first<<"->";
-            for(auto j:it.second){
+            for(auto &j:it.second){
                 cout<<j<<" ";
 
             }
@@ -40,16 +41,25 @@ cin>>n;
 cout<<"enter number of edges \n";
 int m;
 cin>>m;
-  Graph g;
+  Graph g_und;
+    Graph g_dir;
+
  for(int i=0;i<m;i++){
     int u,v;
     cin>>u>>v;
     // creating undirected graph
-    g.addEdge(u,v,0);
+    g_und.addEdge(u,v,0);
+    // creating directed graph
+    g_dir.addEdge(u,v,1);
  }
 
  // printing graph
- g.printAdjlist();
+ cout<<"Adjacency list of undirected graph:\n";
+ g_und.printAdjlist();
+
+ cout<<"*************************\n";
+cout<<"Adjacency list of directed graph:\n";
+ g_dir.printAdjlist();
 
     return 0;
 }
