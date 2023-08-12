@@ -7,13 +7,16 @@ int main()
     cout<<"enter size of array\n";
     cin>>n;
     int arr[n];
+
  long long int pre[n+1]; // prefix sum array
     pre[0]=0;
+
     cout<<"enter element of array\n";
     for(int i=0;i<n;i++){
         cin>>arr[i];
         pre[i+1]=pre[i]+arr[i]; // prefix sum array  contains sum of all elements from 0 to i
     }
+    
     cout<<"enter position upto which you want to print prefix sum array\n";
     int pos;
     cin>>pos;
