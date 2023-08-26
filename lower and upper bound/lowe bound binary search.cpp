@@ -1,25 +1,28 @@
 #include<bits/stdc++.h>
 using namespace std;
  
- int lower_bound(int a[],int size,int val){
-    int lo=0;
-    int hi=size-1;
+ int lower_bound(int a[], int size, int val) {
+    int lo = 0;
+    int hi = size - 1;
     int mid;
-    while(hi-lo>1){
-        mid=lo+(hi-lo)/2;
-        if(a[mid]<=val)
-        lo=mid+1;
+    
+    while (hi - lo > 1) {
+        mid = lo + (hi - lo) / 2;
+        if (a[mid] <= val)
+            lo = mid;
         else
-        hi=mid;
+            hi = mid - 1;
     }
-    if(a[lo]>val)
-    return lo;
-    else if(a[hi]>val)
-    return hi;
+    
+    if (a[hi] <= val)
+        return hi;
+    else if (a[lo] <= val)
+        return lo;
     else
-    return -1; // upper bound  not found
-
+        return -1; // No value less than or equal to val found lower bound not found
  }
+
+ 
 int main()
 {
   int size;
