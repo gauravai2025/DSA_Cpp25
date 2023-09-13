@@ -41,32 +41,35 @@ Node* input_data(Node* root){
     return root;
 }
 
-void inorder(Node* root,vector<int>&ans){
+void kthlargest(Node* root,int &k,int &ans){
             if(root==NULL)
             return ;
-            inorder(root->left,ans);
-            ans.push_back(root->data);
-            inorder(root->right,ans);
 
+            kthlargest(root->right,k,ans);
+            k--;
+            if(k==0)
+            ans=root->data;
+            
+            kthlargest(root->left,k,ans);
+           
+           
 }
 
 
-
-    int kthlargest(Node* root, int k) {
-        vector<int>ans;
-        inorder(root,ans);
-        int size=ans.size();
-        return ans[size-k];
-    }
-
 int main()
 {
-    cout<<"enter data for BST\n";
+cout<<"enter data for BST\n";
  Node* root=NULL;
  root =input_data(root);
+
 cout<<"enter value of k\n";
 int k;
 cin>>k;
-cout<<k<<"th largest element: "<<kthlargest(root,k)<<"\n";
+int ans=0;
+
+int kt=k;
+
+kthlargest(root,k,ans);
+cout<<kt<<"th largest element: "<<ans<<"\n";
     return 0;
 }

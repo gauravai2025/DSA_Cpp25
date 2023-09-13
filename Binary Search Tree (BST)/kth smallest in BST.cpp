@@ -55,7 +55,6 @@ void inorder(Node* root,int &ans,int &cnt,int k){
 
 }
 
-
     int kthSmallest(Node* root, int k) {
         int cnt=0;
         int ans=0;
@@ -66,7 +65,7 @@ void inorder(Node* root,int &ans,int &cnt,int k){
 
 int main()
 {
-    cout<<"enter data for BST\n";
+cout<<"enter data for BST\n";
  Node* root=NULL;
  root =input_data(root);
     cout<<"enter value of k\n";

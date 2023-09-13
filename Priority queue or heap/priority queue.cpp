@@ -3,6 +3,7 @@
 using namespace std;
 int main(){
     priority_queue<int>maxi;  // max priority queue
+    // min priority queue
     priority_queue<int,vector<int>,greater<int>>mini;
      maxi.push(2);
      maxi.push(6);
