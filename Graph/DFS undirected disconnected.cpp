@@ -68,7 +68,7 @@ vector<vector<int>>ans;
  }
 
 
- cout<<"bfs of given graph\n";
+ cout<<"dfs of given graph\n";
   for(auto &it:ans){
     for(int &it2:it){
         cout<<it2<<" ";

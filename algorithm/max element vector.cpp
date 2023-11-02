@@ -22,6 +22,9 @@ auto it1=max_element(a.begin()+2,a.end());  // find max element fom 3rd element 
  
  cout<<(*it1)<<endl;
  int val=*max_element(a.begin(),a.end()); 
+
+ cout<<"maximum element of vector at position: "<<max_element(a.begin(),a.end())-a.begin()+1;
+
  
     return 0;
 }

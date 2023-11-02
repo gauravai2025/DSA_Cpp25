@@ -2,22 +2,26 @@
 using namespace std;
 
 int second_largest(int *arr,int size){
-    int max1=INT_MIN;
+   	int max1=INT_MIN;
     int max2=INT_MIN;
 
-    for(int i=0;i<size;i++){
+    for(int i=0;i<n;i++){
         if(arr[i]>max1){
             max2=max1;
             max1=arr[i];
             
         }
         else{
-            if(arr[i]>max2)
-                max2=arr[i];
+        // updating second max
+            if(arr[i]!=max1)
+            max2=max(arr[i],max2);
             
         }
 
     }
+    if(max2==INT_MIN)  // second minimum does not exist
+     return -1
+     else
     return max2;
 }
 

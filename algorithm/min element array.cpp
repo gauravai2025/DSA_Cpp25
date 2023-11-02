@@ -9,7 +9,8 @@ int main() {
     for(int i=0;i<size ;i++){
         cin>>arr[i];
         }
-   cout<<"minimum element of array: "<<*min_element(arr, arr + size);
+   cout<<"minimum element of array: "<<*min_element(arr, arr + size)<<endl;
+   cout<<"minimum element of array at index: "<<min_element(arr, arr + size)-arr;
     
     return 0;
 }

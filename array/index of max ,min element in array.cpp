@@ -5,6 +5,7 @@ using namespace std;
 void arrmin(int a[],int size1){
 int  min1=INT_MAX;
 int index1=0;
+
 for(int i=0;i<size1;i++){
     if( a[i]<min1);{
         min1 =a[i];
@@ -19,7 +20,7 @@ void arrmax(int b[],int size2){
 for(int j=0;j<size2;j++){
    
     if( b[j]>max1);{
-        max1=b[j];
+        max1=b[j];  // max1=max(max1,b[j])
         index2=j;}
     }
      cout<<"maximum element"<<max1<<"\n";

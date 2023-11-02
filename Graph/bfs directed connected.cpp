@@ -53,6 +53,7 @@ int edge;
 cin>>edge;
   Graph g;
     
+cout<<"enter edges\n";
 
  for(int i=0;i<edge;i++){
     int u,v;

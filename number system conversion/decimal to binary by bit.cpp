@@ -1,16 +1,15 @@
-#include<iostream>
-#include<math.h>
+#include<bits/stdc++.h>
 using namespace std;
+
 int main(){
-    int n,binum=0,i=0;
+    long long int num;
+    string binstr;
     cout<<"enter number\n";
-    cin>>n;
-    while(n!=0){
-       int  digit=n&1;
-       binum+=digit*pow(10,i);
-       n=n>>1;
-i++;
+    cin>>num;
+    while(num!=0){
+       (num&1)==1?binstr='1'+binstr:binstr='0'+binstr;
+       num=num>>1;
     }
-    cout<<binum;
+    cout<<binstr<<endl;
     return 0;
 }
