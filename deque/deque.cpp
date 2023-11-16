@@ -8,6 +8,7 @@ int main(){
     d.push_front(4);
     d.push_back(8);    // insert element from back
     cout<<d.at(1)<<endl;   // element at random access
+    cout<<d[2]<<endl;   // element at random access
     for(int i:d){    // print all element 
         cout<<i<<" ";
     }
