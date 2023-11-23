@@ -1,0 +1,1 @@
+{"name":"Local: add two large number","url":"d:\\DSA_Cpp25\\handle big integer\\add two large number.cpp","tests":[{"id":1700480047581,"input":"123\n898","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\DSA_Cpp25\\handle big integer\\add two large number.cpp","group":"local","local":true}
