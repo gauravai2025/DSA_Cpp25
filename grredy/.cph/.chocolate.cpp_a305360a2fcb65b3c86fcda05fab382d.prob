@@ -1,0 +1,1 @@
+{"name":"Local: chocolate","url":"d:\\DSA_Cpp25\\grredy\\chocolate.cpp","tests":[{"id":1702904533872,"input":"1\n\n6 4\n2\n1\n3\n1\n4\n4\n1\n2","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\DSA_Cpp25\\grredy\\chocolate.cpp","group":"local","local":true}

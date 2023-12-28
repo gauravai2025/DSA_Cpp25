@@ -9,6 +9,7 @@ using namespace std;
 while(start<=end){
    
   mid=start+(end-start)/2;
+  
         if(a[mid]==key){
         end=mid-1;
         ans=mid;}  // search for leftmost occurence of element
