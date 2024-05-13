@@ -27,8 +27,5 @@ for(int i=0;i<q;i++){
 for(int i=0;i<q;i++){
     cout<<fib[arr[i]]<<"\n";
 }
-
- 
- 
     return 0;
 }

@@ -1,0 +1,1 @@
+{"name":"Local: access word from sentence","url":"d:\\DSA_Cpp25\\stringstream\\access word from sentence.cpp","tests":[{"id":1715497146670,"input":"2\nhi i am gaurav\nhi how are you","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\DSA_Cpp25\\stringstream\\access word from sentence.cpp","group":"local","local":true}

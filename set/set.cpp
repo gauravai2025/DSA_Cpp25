@@ -39,6 +39,16 @@ cout<<"9 is present "<<s.count(9)<<endl;
 set<int>::iterator val=s.find(6);   // val = address of 6
    cout<<*val;   // *val=value at address of 6=6
    cout<<endl;
+   cout<<"erase element 6 by iterator"<<endl;
+   s.erase(val);
+
+    for(auto i:s){
+        cout<<i<<" ";
+
+    }
+
+    cout<<endl;
+    cout<<"insert 23 and 55"<<endl;
  s.insert(23);
  s.insert(55);
  for(auto it=val;it!=s.end();it++){
@@ -46,6 +56,13 @@ set<int>::iterator val=s.find(6);   // val = address of 6
  }
  cout<<endl;
   for(auto i:s){
+        cout<<i<<" ";
+
+    }
+
+    cout<<"delete element 23 by value"<<endl;
+    s.erase(23);
+     for(auto i:s){
         cout<<i<<" ";
 
     }

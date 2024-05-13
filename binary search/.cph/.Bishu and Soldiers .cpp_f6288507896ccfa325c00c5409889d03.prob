@@ -1,0 +1,1 @@
+{"name":"Local: Bishu and Soldiers ","url":"d:\\DSA_Cpp25\\binary search\\Bishu and Soldiers .cpp","tests":[{"id":1705889711304,"input":"7\n1 2 3 4 5 6 7\n3\n3\n10\n2","output":"3 6\n7 28\n2 3"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\DSA_Cpp25\\binary search\\Bishu and Soldiers .cpp","group":"local","local":true}

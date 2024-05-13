@@ -1,0 +1,1 @@
+{"name":"Local: palindrome reorder","url":"d:\\DSA_Cpp25\\platform question\\palindrome reorder.cpp","tests":[{"id":1706610645274,"input":"\nAADDDCC","output":"\nACDDDCA\n"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\DSA_Cpp25\\platform question\\palindrome reorder.cpp","group":"local","local":true}

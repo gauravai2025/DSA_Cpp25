@@ -3,6 +3,7 @@ using namespace std;
 
 long long int pow(long long int b,long long int p){
     long long int res=1;
+    
     while(p){
   
   if(p&1)
@@ -12,6 +13,7 @@ p=p>>1;
     }
     return res;
 }
+
 
   void cnt_sum(int num){
      vector<pair<int,int>>exp;
@@ -23,6 +25,7 @@ p=p>>1;
             num/=i;
 
         }
+        if(cnt>0)
         exp.push_back({i,cnt});
     }
     if(num>1)

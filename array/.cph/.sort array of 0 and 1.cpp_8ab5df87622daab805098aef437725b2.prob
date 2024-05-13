@@ -1,0 +1,1 @@
+{"name":"Local: sort array of 0 and 1","url":"d:\\DSA_Cpp25\\array\\sort array of 0 and 1.cpp","tests":[{"id":1698978421178,"input":"5\n0 0 1 1 0","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\DSA_Cpp25\\array\\sort array of 0 and 1.cpp","group":"local","local":true}

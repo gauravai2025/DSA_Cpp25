@@ -1,0 +1,1 @@
+{"name":"Local: count divisors","url":"d:\\DSA_Cpp25\\platform question\\count divisors.cpp","tests":[{"id":1706514491403,"input":"3\n16\n17\n18","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\DSA_Cpp25\\platform question\\count divisors.cpp","group":"local","local":true}

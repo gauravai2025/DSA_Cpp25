@@ -22,6 +22,9 @@ int main()
     int k;
     cin>>k;
     cout<<"kth largest element: "<<findKthLargest(arr,k,size)<<"\n";
+    for(auot it:arr){
+        cout<<it<<" ";
+    }
 
     return 0;
 }

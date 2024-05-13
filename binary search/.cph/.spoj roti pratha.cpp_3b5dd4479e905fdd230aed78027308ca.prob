@@ -1,0 +1,1 @@
+{"name":"Local: spoj roti pratha","url":"d:\\DSA_Cpp25\\binary search\\spoj roti pratha.cpp","tests":[{"id":1702731151148,"input":"3\n10\n4 1 2 3 4\n8\n1 1\n8\n8 1 1 1 1 1 1 1 1","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\DSA_Cpp25\\binary search\\spoj roti pratha.cpp","group":"local","local":true}

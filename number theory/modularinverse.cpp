@@ -2,7 +2,8 @@
 #include<bits/stdc++.h>
 using namespace std;
  long long int x;
-    long long int y;
+long long int y;
+
 void exteuclid(long long int a,long long int b){
     if(b==0){
         x=1;

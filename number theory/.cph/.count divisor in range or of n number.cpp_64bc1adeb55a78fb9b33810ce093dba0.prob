@@ -1,0 +1,1 @@
+{"name":"Local: count divisor in range or of n number","url":"d:\\DSA_Cpp25\\number theory\\count divisor in range or of n number.cpp","tests":[{"id":1712038249635,"input":"3\n16\n17\n18","output":"5\n2\n6"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\DSA_Cpp25\\number theory\\count divisor in range or of n number.cpp","group":"local","local":true}

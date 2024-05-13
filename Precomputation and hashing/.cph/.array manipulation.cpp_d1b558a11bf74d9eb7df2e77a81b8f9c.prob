@@ -1,0 +1,1 @@
+{"name":"Local: array manipulation","url":"d:\\DSA_Cpp25\\Precomputation and hashing\\array manipulation.cpp","tests":[{"id":1714270392788,"input":"5 3\n1 2 100\n2 5 100\n3 4 100","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\DSA_Cpp25\\Precomputation and hashing\\array manipulation.cpp","group":"local","local":true}

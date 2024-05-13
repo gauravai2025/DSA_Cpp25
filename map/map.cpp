@@ -9,6 +9,10 @@ int main(){
     m[4]="abhishekh";
 //input using  insert  function
     m.insert({1,"adarsh"});  
+     m.insert(make_pair(3,"adarsh"));  
+    m.insert(pair<int,string>(1,"adarsh"));  
+
+
     // print
     for(auto i:m){
         cout<<i.second<<endl;
@@ -32,5 +36,6 @@ int main(){
          cout<<(*i).first<<" "<<(*i).second<<endl;
 
     }
+    // (*it).first=5;  // error because it is const iterator
     return 0;
 }

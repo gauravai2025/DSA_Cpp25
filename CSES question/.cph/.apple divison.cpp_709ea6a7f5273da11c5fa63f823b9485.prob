@@ -1,0 +1,1 @@
+{"name":"Local: apple divison","url":"d:\\DSA_Cpp25\\platform question\\apple divison.cpp","tests":[{"id":1706940121487,"input":"10\n603 324 573 493 659 521 654 70 718 257","output":"2"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\DSA_Cpp25\\platform question\\apple divison.cpp","group":"local","local":true}

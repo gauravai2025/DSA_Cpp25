@@ -3,12 +3,12 @@ using namespace std;
 
 long long int max_sum_subarray(vector<int>&arr,int size){
    long long int maxsum=LONG_MIN;
-    long long int sum=LONG_MIN;
+    long long int sum=0;
 for(int i=0;i<size;i++){
     sum+=arr[i];
-    if(sum<arr[i])
-    sum=arr[i];
-    maxsum=max(maxsum,sum);
+     maxsum=max(maxsum,sum);
+    if(sum<0)
+    sum=0;
 
 }
 return maxsum;

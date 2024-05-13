@@ -1,0 +1,1 @@
+{"name":"Local: prime multiples","url":"d:\\DSA_Cpp25\\platform question\\prime multiples.cpp","tests":[{"id":1706540842715,"input":"20 2\n2 5","output":"12"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\DSA_Cpp25\\platform question\\prime multiples.cpp","group":"local","local":true}

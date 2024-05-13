@@ -4,6 +4,7 @@ using namespace std;
     long long int ans=0;
     long long int chk=abs(n);
     n=abs(n);
+
     while(chk){
         if(chk&1)
         ans=ans+n;
@@ -11,6 +12,19 @@ using namespace std;
         chk=chk>>1;
     }
     return ans;
+    // long long int ans=0;
+    // if(num<0)
+    // num=-num;
+    // int n=num;
+    // int i=0;
+
+    // while(num){
+    //     if(num&1)
+    //     ans+=(n<<i);
+    //     i++;
+    //     num=num>>1;
+    // }
+    // return ans;
  }
 int main()
 {

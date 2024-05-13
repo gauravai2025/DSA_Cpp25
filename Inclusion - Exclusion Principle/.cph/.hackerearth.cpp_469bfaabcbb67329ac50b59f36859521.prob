@@ -1,0 +1,1 @@
+{"name":"Local: hackerearth","url":"d:\\DSA_Cpp25\\Inclusion - Exclusion Principle\\hackerearth.cpp","tests":[{"id":1706947463572,"input":"2\n5\nhelen\nirena\narthos\npentos\ntulu\n3\nalen\nbira\ncult","output":"1\n0"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\DSA_Cpp25\\Inclusion - Exclusion Principle\\hackerearth.cpp","group":"local","local":true}

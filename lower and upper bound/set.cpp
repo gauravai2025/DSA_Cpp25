@@ -26,7 +26,7 @@ auto itup=upper_bound(s.begin(),s.end(),val); // find upper bound in whole set  
 if(itlow==(s.end()))
 cout<<"not found\n";
 else
-cout<<"lower bound of "<<val<<": "<<(*itlow)<<endl;
+cout<<"lower bound of "<<val<<": "<<(*itlow)<<" position : "<<distance(s.begin(),itlow)<<endl;
 
 if(itup==(s.end()))
 cout<<"not found\n";

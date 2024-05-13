@@ -25,7 +25,7 @@ if(cnt1==arr+size)
 cout<<"not present\n";
 else
 cout<<" present: "<<(*cnt1)<<endl;
- 
+ cout<<cnt1-arr<<endl;
  
  
     return 0;

@@ -1,0 +1,1 @@
+{"name":"Local: decide int or float","url":"d:\\DSA_Cpp25\\basic programmig\\decide int or float.cpp","tests":[{"id":1707372837675,"input":"234.000","output":"float 534 0.958"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\DSA_Cpp25\\basic programmig\\decide int or float.cpp","group":"local","local":true}
