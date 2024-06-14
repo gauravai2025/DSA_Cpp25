@@ -6,6 +6,7 @@ void printbinary(int num){
         cout<<((num>>i)&1);
     }
 }
+
  int unsetbit(int num,int pos){ // position of bit is counted from zero
         pos=1<<pos;
         pos=(~pos);
@@ -14,6 +15,7 @@ void printbinary(int num){
       
     
 }
+
 int main(){
     cout<<"enter number\n";
     int num;

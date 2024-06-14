@@ -69,6 +69,7 @@ void merge(vector<int>& arr, int strt, int mid, int end) {
 
 
 void merge_sort(vector<int>& arr, int strt, int end) {
+    
     if (strt >= end) {
         return;
     }

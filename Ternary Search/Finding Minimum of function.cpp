@@ -19,8 +19,8 @@ using namespace std;
         else if(fun(mid1)>fun(mid2))
         st=mid1+1;
         else{
-            st=mid1+1;
-            end=mid2-1;
+        st=mid1+1;
+        end=mid2-1;
         }
     }
 
