@@ -2,18 +2,23 @@
 using namespace std;
    
 string multiply(string s1,string s2){
+
     int l1=s1.length();
     int l2=s2.length();
      int rslt[l1+l2]={0};
     int i=l1-1;
     int pf=0;
+
    string ans="";
    int chk1=0;
+
    if(s1[0]=='-')
       chk1++;
+
         int chk2=0;
-            if(s2[0]=='-')
-            chk2++;
+        if(s2[0]=='-')
+        chk2++;
+
     while(i>=chk1){
         int ival=s1[i]-'0';
         i--;
@@ -53,9 +58,6 @@ string multiply(string s1,string s2){
    
 }
 
-
-
- 
 int main()
 {
 cout<<"enter two number\n";
@@ -66,7 +68,5 @@ string ans= multiply(s1,s2);
 
 cout<<ans;
 
- 
- 
-    return 0;
+ return 0;
 }
