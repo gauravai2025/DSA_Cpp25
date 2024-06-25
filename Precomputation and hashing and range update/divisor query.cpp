@@ -15,12 +15,12 @@ for(int i=1;i<size;i++){
     }
 }
 
-int n;
-cout<<"enter number n";
-cin>>n;
-cout<<"enter n number to find number of  divisor\n";
+int q;
+cout<<"enter number of query ";
+cin>>q;
+cout<<"enter number to find number of  divisor\n";
 int x;
-for(int i=0;i<n;i++){
+for(int i=0;i<q;i++){
     cin>>x;
     cout<<x<<" : divisor: "<<divs[x]<<endl;
     // cout<<divs[x]<<endl;

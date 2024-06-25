@@ -1,5 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
+
  long long int binomialcofficient(int n,int r){
     if(r>n-r)  // ncr=nc(n-r)
     r=n-r;

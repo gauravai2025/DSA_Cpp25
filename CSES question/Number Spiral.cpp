@@ -8,24 +8,33 @@ int main()
 while(t--){
    long long int x,y;
    cin>>x>>y;
+    long long int ans=0;
 
    if(x>=y){
+    ans=(x-1)*(x-1);
+
      if(x&1){
-       cout<<(x-1)*(x-1)+y<<endl;
+       ans+=y;
      }
      else{
-       cout<<(x)*(x)-y+1<<endl;
+       ans=ans+x+x-y;
      }
    }
+
+
 else{
+  ans=(y-1)*(y-1);
+
     if(y&1){
-       cout<<y*y-x+1<<endl;
+     ans=ans+y+y-x;
      }
+
      else{
-       cout<<(y-1)*(y-1)+x<<endl;
+       ans=ans+x;
      }
 
 }
+cout<<ans<<endl;
 }
     return 0;
 }

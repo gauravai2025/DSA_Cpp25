@@ -49,7 +49,8 @@ long long int ans=0;
 long long int mid=0;
 
 while(st<=end){
-    mid=(st+end)/2;
+
+ mid=(st+end)/2;
 
     if(divison_array(a,n,k,mid)){
         ans=mid;
@@ -60,6 +61,7 @@ while(st<=end){
     else{
   st=mid+1;
     }
+
 }
 
 cout<<ans<<endl;
