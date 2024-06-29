@@ -6,11 +6,10 @@ class Graph{
     unordered_map<int,list<int>>adj;
 
     void addEdge(int u,int v){
-       // undirected graph
+       // directed graph
         // create edge from u to v
         adj[u].push_back(v);
-        // create edge from v to u
-        adj[v].push_back(u);
+      
     }
 
 
@@ -47,7 +46,7 @@ cin>>edge;
  for(int i=0;i<edge;i++){
     int u,v;
     cin>>u>>v;
-    // creating undirected graph
+    // creating directed graph
     g.addEdge(u,v);
    
  }

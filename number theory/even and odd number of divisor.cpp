@@ -1,8 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-
-
   void cnt_div(int num){
      vector<pair<int,int>>exp;
      int cnt=0;
@@ -15,8 +13,10 @@ using namespace std;
         }
         exp.push_back({i,cnt});
     }
+
     if(num>1)
     exp.push_back({num,1});
+    
     long long int cntdiv=1;
     long long int oddcntdiv=1;
 

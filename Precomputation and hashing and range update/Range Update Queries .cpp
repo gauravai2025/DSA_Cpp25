@@ -4,21 +4,32 @@ using namespace std;
 int main()
 {
  
-    int size, qe;
-    cin >> size >> qe;
+    int size;
+    cout<<"Enter the size of the array: ";
+    
+    cin >> size;
     vector<long long int> arr(size, 0);
     vector<long long int> prefix(size, 0);
+
+    cout<<"Enter the elements of the array: ";
  
     for (int i = 0; i < size; i++)
     {
         cin >> arr[i];
     }
+
+    cout<<"Enter the number of queries: ";
+    int qe;
+    cin >> qe;
+
     int l, r, val, type, k;
+
+    cout<<"enter query in  format 1 for update and 2 for query:\n";
+
  
     while (qe--)
     {
- 
-        cin >> type;
+    cin >> type;
  
         if (type == 1)
         {
