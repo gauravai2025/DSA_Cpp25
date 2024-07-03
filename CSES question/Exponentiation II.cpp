@@ -3,7 +3,7 @@ using namespace std;
 
 const int mod=1e9+7;
 
-long long int binary_exponentiation(long long int a,long long int b)
+long long int binary_exponentiation(long long int a,long long int b,long long int mod)
 {
     long long int res=1;
 
@@ -32,8 +32,8 @@ int main()
 
 long long int a,b,c;
 cin>>a>>b>>c;
-long long int rslt=binary_exponentiation(b,c);
-cout<<binary_exponentiation(a,rslt)<<endl;
+long long int rslt=binary_exponentiation(b,c,mod-1);
+cout<<binary_exponentiation(a,rslt,mod)<<endl;
     }
     return 0;
 }
