@@ -2,9 +2,9 @@
 using namespace std;
 
 const int mod=1e9+7;
-    unsigned long int catalanDP(unsigned int n)
+ long long int catalanDP(long long int n)
 {
-    unsigned long int catalan[n + 1];
+    long long int catalan[n + 1];
     catalan[0] = catalan[1] = 1;
     
     for (int i = 2; i <= n; i++) {
@@ -19,7 +19,7 @@ const int mod=1e9+7;
 }
  
    
-    return catalan[n];
+ return catalan[n];
 }
 
  

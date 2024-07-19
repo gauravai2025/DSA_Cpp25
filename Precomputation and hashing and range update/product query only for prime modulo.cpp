@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-const int MOD = 1e9 + 7;
+const int MOD = 1e9 + 7;  // or any other prime number
 
 long long mod_exp(long long base, long long exp, long long mod) {
     long long result = 1;

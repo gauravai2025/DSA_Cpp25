@@ -1,5 +1,6 @@
 #include<iostream>
 using namespace std;
+
 int nth_term_value(int num){
 int a=0,b=1,next;
 

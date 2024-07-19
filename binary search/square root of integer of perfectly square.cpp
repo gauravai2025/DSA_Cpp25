@@ -11,15 +11,17 @@ int squqre_root(int n){
     long long int mid;
 
     while(lo<=hi){
-       mid=lo+(hi-lo)/2;
 
-       if(mid==n/mid)
-       return mid;
+    mid=lo+(hi-lo)/2;
 
-       if(mid<n/mid)
-       lo=mid+1;
-       else
-      hi=mid-1;
+    if(mid==n/mid)
+    return mid;
+
+    if(mid<n/mid)
+    lo=mid+1;
+    else
+    hi=mid-1;
+    
     }
 
     return hi;
