@@ -2,9 +2,10 @@
 using namespace std;
  
  int upper_bound(int a[],int size,int val){
-    int lo=0;
-    int hi=size-1;
-    int mid;
+    long long  int lo=0;
+     long long  int  hi=size-1;
+     long long  int mid;
+
     while(hi-lo>1){
         mid=lo+(hi-lo)/2;
         if(a[mid]<=val)
@@ -12,12 +13,13 @@ using namespace std;
         else
         hi=mid;
     }
+
     if(a[lo]>val)
     return lo;
     else if(a[hi]>val)
     return hi;
     else
-    return -1; // upper bound  not found
+    return -1; // upper bound  not found  return size in stl upper bound
 
  }
 int main()

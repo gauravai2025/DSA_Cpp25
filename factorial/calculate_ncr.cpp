@@ -10,7 +10,7 @@ long long int factorial(int num){
 
     }
 
-    long long int ncr(int n,int r){
+     long long int ncr(int n,int r){
        long long  int k1=factorial(n);
       long long    int k2=factorial(r);
         long long  int k3=factorial(n-r);
@@ -24,9 +24,6 @@ cin>>n;
 cout<<"enter selection number";
 cin>>r;
 cout<<ncr(n,r);
-// int k1=factorial(n);
-// int k2=factorial(r);
-// int k3=factorial(n-r);
-// cout<<((k1)/(k2*k3));
+
 
 }

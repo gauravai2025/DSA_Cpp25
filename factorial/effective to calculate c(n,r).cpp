@@ -25,6 +25,7 @@ using namespace std;
     // return ans/r1;
 
  }
+ 
 int main()
 {
 cout<<"Enter n and r: \n";

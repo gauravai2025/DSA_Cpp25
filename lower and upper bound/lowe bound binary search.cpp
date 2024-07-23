@@ -8,18 +8,20 @@ using namespace std;
     
     while (hi - lo > 1) {
         mid = lo + (hi - lo) / 2;
-        if (a[mid] <= val)
-            lo = mid;
+
+        if (a[mid] <val)
+            lo = mid+1;
         else
-            hi = mid - 1;
+            hi = mid ;
     }
     
-    if (a[hi] <= val)
-        return hi;
-    else if (a[lo] <= val)
+    if (a[lo] >=val)
         return lo;
-    else
-        return -1; // No value less than or equal to val found lower bound not found
+
+    if (a[hi] >=val)
+        return hi;
+    
+    return -1; // No value less than or equal to val found lower bound not found return size in stl lower bound
  }
 
  
