@@ -3,7 +3,7 @@
 using namespace std;
 
 // Function to return precedence of operators
-int prec(char c)
+int priority(char c)
 {
 	if (c == '^')
 		return 3;
@@ -20,7 +20,7 @@ int prec(char c)
 void infixToPostfix(string s)
 {
 	stack<char> st;
-	string result;
+	string result="";
 
 	for (int i = 0; i < s.length(); i++) {
 		char c = s[i];
@@ -49,7 +49,7 @@ void infixToPostfix(string s)
 		// If an operator 
 		else {
 			while (!st.empty()
-				&& prec(s[i]) <= prec(st.top())) {
+				&& priority(s[i]) <= priority(st.top())) {
 				result += st.top();
 				st.pop();
 			}
