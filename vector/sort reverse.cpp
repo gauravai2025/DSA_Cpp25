@@ -11,7 +11,7 @@ cout<<"enter element of vector\n";
 for(int i=0;i<n;i++){
     cin>>ans[i];
 }
- sort(ans.rbegin(), ans.rend());
+ sort(ans.rbegin(), ans.rend());  // sort(ans.begin(),ans.end(),greater<int>())
     cout<<"reverse sorted vector is\n";
     for(int i=0;i<n;i++){
         cout<<ans[i]<<" ";

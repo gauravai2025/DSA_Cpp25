@@ -19,49 +19,116 @@ public:
     }
 };
 
-void add_polynomial(Node *head1, Node *head2)
+    // time complexity O(n+m)
+    // space complexity O(n+m)
+// void add_polynomial(Node *head1, Node *head2)
+// {
+
+//     Node *curr1 = head1;
+//     Node *curr2 = head2;
+//     Node *head = NULL;
+//     Node *curr = NULL;
+
+//     while (curr1 != NULL && curr2 != NULL)
+//     {
+
+//         Node *temp = NULL;
+
+//         if (curr1->power == curr2->power)
+//         {
+//             temp = new Node(curr1->coefficient + curr2->coefficient, curr1->power);
+//             curr1 = curr1->next;
+//             curr2 = curr2->next;
+//         }
+
+//         else if (curr1->power>curr2->power)
+//         {
+//             temp = new Node(curr1->coefficient, curr1->power);
+//             curr1 = curr1->next;
+//         }
+
+//         else
+//         {
+//             temp = new Node(curr2->coefficient, curr2->power);
+//             curr2 = curr2->next;
+//         }
+
+//         if (head == NULL)
+//         {
+//             head = temp;
+//             curr = temp;
+//         }
+
+//         else
+//         {
+//             curr->next = temp;
+//             curr = temp;
+//         }
+
+//     }
+
+//     if (curr1 != NULL)
+//     {
+//         curr->next = curr1;
+//     }
+
+//     if (curr2 != NULL)
+//     {
+//         curr->next = curr2;
+//     }
+
+//     curr = head;
+//     bool flag=0;
+
+//     while (curr != NULL)
+//     {
+//         if(flag)
+//         cout<<"+";
+//         cout << curr->coefficient << curr->base << curr->power;
+//         curr = curr->next;
+//         flag=1;
+//     }
+
+// }
+
+// time complexity O(n+m)
+// space complexity O(1)
+
+  void add_polynomial(Node *head1, Node *head2)
 {
 
     Node *curr1 = head1;
     Node *curr2 = head2;
-    Node *head = NULL;
-    Node *curr = NULL;
+    Node *dummy = new Node(0,0);
+    Node *curr = dummy;
 
     while (curr1 != NULL && curr2 != NULL)
     {
 
-        Node *temp = NULL;
-
-        if (curr1->power == curr2->power)
-        {
-            temp = new Node(curr1->coefficient + curr2->coefficient, curr1->power);
+       
+  if (curr1->power == curr2->power)
+     {
+        
+         curr1->coefficient=curr1->coefficient + curr2->coefficient;
+         curr->next=curr1;
             curr1 = curr1->next;
             curr2 = curr2->next;
         }
 
         else if (curr1->power>curr2->power)
         {
-            temp = new Node(curr1->coefficient, curr1->power);
+           curr->next=curr1;
             curr1 = curr1->next;
         }
 
         else
         {
-            temp = new Node(curr2->coefficient, curr2->power);
+           curr->next=curr2;
             curr2 = curr2->next;
         }
 
-        if (head == NULL)
-        {
-            head = temp;
-            curr = temp;
-        }
-
-        else
-        {
-            curr->next = temp;
-            curr = temp;
-        }
+        curr=curr->next;
+       
 
     }
 
@@ -74,7 +141,11 @@ void add_polynomial(Node *head1, Node *head2)
     {
         curr->next = curr2;
     }
+    
+    
+    Node* head=dummy->next;
 
+    
     curr = head;
     bool flag=0;
 
@@ -82,11 +153,14 @@ void add_polynomial(Node *head1, Node *head2)
     {
         if(flag)
         cout<<"+";
-        cout << curr->coefficient << curr->base << curr->power;
+        if(curr->power!=0)
+        cout << curr->coefficient << curr->base <<"^"<< curr->power;
+        else
+        cout<<curr->coefficient;
         curr = curr->next;
         flag=1;
     }
-
+    
 }
 
     int main()
