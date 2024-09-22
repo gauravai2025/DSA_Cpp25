@@ -22,6 +22,7 @@ using namespace chrono;
 
 // Seed and random number generator
 std::mt19937 rng(std::chrono::steady_clock::now().time_since_epoch().count());
+mt19937_64 rnd(time(0));
 typedef long long ll;
  typedef unsigned long long ull;
 typedef long double lld;

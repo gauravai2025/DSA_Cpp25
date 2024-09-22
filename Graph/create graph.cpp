@@ -42,7 +42,7 @@ cout<<"enter number of edges \n";
 int m;
 cin>>m;
   Graph g_und;
-    Graph g_dir;
+  Graph g_dir;
 
  for(int i=0;i<m;i++){
     int u,v;

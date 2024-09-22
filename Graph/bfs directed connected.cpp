@@ -4,6 +4,9 @@ using namespace std;
 class Graph{
     public:
     unordered_map<int,set<int>>adj;
+        // unordered_map<int,vector<int>>adj;
+        //  vector<vector<int>>adj;
+
 
     void addEdge(int u,int v){
        // directed graph
