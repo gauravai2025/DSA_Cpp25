@@ -3,8 +3,8 @@ using namespace std;
 
 int  cnt_move(int n)
 {
-   if(n==0)
-   return 0;
+   if(n==1)
+   return 1;
 
    return 2*cnt_move(n-1)+1;
 }

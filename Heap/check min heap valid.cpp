@@ -1,14 +1,13 @@
 #include<bits/stdc++.h>
 using namespace std;
  
-  // leaf node from n/2+1 to n already satisfy max heap property
-
- bool isMaxHeap(int *a, int n)
+ // leaf node from n/2+1 to n alraedy satisfy min heap property
+ bool isMinHeap(int *a, int n)
     {
        
         for(int i=0;i<n/2;i++){
-            // children are greater than parent
-            if(a[i]<=a[2*i+1] || a[i]<=a[2*i+2])
+            // parent  are greater than children
+            if(a[i]>=a[2*i+1] || a[i]>=a[2*i+2])
             return 0;
         }
         return 1;
@@ -26,7 +25,7 @@ for(int i=0;i<n;i++){
     cin>>a[i];
 }
 
- cout<<isMaxHeap(a,n);
+ cout<<isMinHeap(a,n);
  
     return 0;
 }
