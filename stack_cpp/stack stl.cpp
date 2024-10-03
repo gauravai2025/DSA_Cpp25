@@ -1,8 +1,11 @@
-#include<iostream>
+#include<bits/stdc++.h>
 using namespace std;
 #include<stack>
+
 int main(){
+
     stack<string>str;
+    
     cout<<"empty or not "<<str.empty();
     str.push("gaurav");
     str.push("rohit");              // input of element 
@@ -12,12 +15,12 @@ int main(){
     cout<<"first element "<<str.top()<<endl;
     cout<<"size :"<<str.size()<<endl;
     cout<<"empty or not "<<str.empty();
+
     // print all element    
     while(!str.empty()){
         cout<<str.top()<<endl;
         str.pop();
     }
  
-    
     return 0;
 }
