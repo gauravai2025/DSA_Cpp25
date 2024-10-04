@@ -18,7 +18,7 @@ class Node{
 
 // time and space complexity of all operation is O(1)
 // class of queue 
-class Queue{
+class circularQueue{
 
     public:
    Node* front;
@@ -26,7 +26,7 @@ class Queue{
    int cnt;
 
     // cnstructor
-    Queue(){
+    circularQueue(){
     front=nullptr;
     rear=nullptr;
     cnt=0;
@@ -40,11 +40,13 @@ class Queue{
      if(rear==nullptr){ // first element insert
         front=newnode;
         rear=newnode;
+        rear->next=front;
      }
 
      else{
     rear->next=newnode;
     rear=rear->next;
+    rear->next=front;
      }
 
       cnt++;
@@ -60,17 +62,19 @@ class Queue{
     }
 
     else{
-    Node* temp=front;
-    front=front->next;
-    delete temp;
-    
-    // if queue is empty start from 0th index
-    if(front==nullptr){
-    front=nullptr;
-    rear=nullptr;
-    }
-
-    cnt--;
+   
+        if (front == rear) {  // Only one element in the queue
+            delete front;
+            front = rear = nullptr;
+        } 
+        
+        else {
+            Node* temp = front;
+            front = front->next;
+            rear->next = front;  // Maintain circular nature
+            delete temp;
+        }
+        cnt--;
 
     }
 
@@ -80,7 +84,7 @@ class Queue{
 
      // queue is empty
         if(front==nullptr){
-            cout<<"queue is empty\n";
+            // cout<<"queue is empty\n";
             return -1;
         }
 
@@ -103,13 +107,19 @@ int queuesize(){
 }
 
 
+     int rearvalue() {
+        if(rear==nullptr)
+        return -1;
+        else
+        return rear->data;
+    }
 
 };
  
 int main()
 {
 
-Queue q;
+circularQueue q;
 
 q.enqueue(7);
 q.enqueue(18);
@@ -127,7 +137,9 @@ cout<<"queue is empty\n";
 else
 cout<<"queue is not empty\n";
  
-  cout<<"front element of queue: "<<q.peakfront()<<endl;
+cout<<"front element of queue: "<<q.peakfront()<<endl;
+
+cout<<"rear element of queue: "<<q.rearvalue()<<endl;
 
     return 0;
 }

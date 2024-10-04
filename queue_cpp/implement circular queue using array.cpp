@@ -1,115 +1,151 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 
-// time and space complexity of all operation is O(1)
-// class of queue 
-class Queue{
-
+// Class for Circular Queue
+class circularQueue {
     public:
-    int front;
-    int rear;
+    int front, rear;
     int *arr;
     int size;
 
-    // cnstructor
-    Queue(int size){
-
-    this->size=size;
-    arr=new int [size];
-    front=0;
-    rear=0;
-
+    // Constructor
+    circularQueue(int size) {
+        this->size = size;
+        arr = new int[size];
+        front = -1;
+        rear = -1;
     }
 
-    void enqueue(int x){  // push / insert
-
-        // check queue is full
-
-        if(rear==size){
-            cout<<"queue is full\n";
-            return ;
+    // Enqueue Operation
+    void enqueue(int x) {
+        // Check if queue is full
+        if ((front == 0 && rear == size - 1) || (rear == front - 1)) {
+            cout << "queue is full\n";
+            return;
         }
 
-        else{
-        arr[rear]=x;
-        rear++; 
+        // If queue is empty
+        else if (front == -1 && rear == -1) {
+            front++;
+            rear++;
+            arr[rear] = x;
+        }
+
+        // Wrap around condition (important for circular nature)
+        else if (rear == size - 1 && front != 0) {
+            rear = 0;
+            arr[rear] = x;
+        }
+
+        // Normal case
+        else {
+            rear = (rear + 1) % size; // Wrap around condition circular nature of queue
+            arr[rear] = x;
         }
     }
 
-    void dequeue(){ // remove /pop
-           
-    // check queue is empty
-    if(front==rear){
-        cout<<"queue is empty\n";
-        return ;
+    // Dequeue Operation
+    void dequeue() {
+        // Check if queue is empty
+        if (front == -1) {
+            cout << "queue is empty\n";
+            return;
+        }
+
+        // If only one element left
+        else if (front == rear) {
+            arr[front] = -1;
+            front = -1;
+            rear = -1;
+        }
+
+        // Normal case
+        else {
+            arr[front] = -1;
+            front = (front + 1) % size;  // Wrap around condition circular nature of queue
+        }
     }
 
-    else{
-        arr[front]=-1;
-       front++; 
-      
-      // if queue is empty start from 0th index
-
-      if(front==rear){
-        front=0;
-        rear=0;
-      }
-
-    }
-
-    }
-
-    int peakfront(){
-
-     // queue is empty
-        if(front==rear){
-            cout<<"queue is empty\n";
+    // Get front element
+    int peakfront() {
+        if (front == -1) {
+            cout << "queue is empty\n";
             return -1;
         }
-
-        else{
-          return arr[front];  
+        else {
+            return arr[front];
         }
     }
 
-    bool isempty(){
-
-        if(front==rear)
-        return 1;
-        else
-        return 0;
+    // Check if queue is empty
+    bool isempty() {
+        return front == -1;
     }
 
-int queuesize(){
+    // Get queue size
+    int queuesize() {
 
-    return rear-front;
-}
+        if (front == -1)
+            return 0;
+        else if (rear >= front)
+            return rear - front + 1;
+        else
+            return rear + 1 + size - front;
+    }
 
+       int Rear() {
+        if(rear==-1)
+        return -1;
+        else
+        return arr[rear];
+    }
+    
 
+     bool isFull() {
+      if(front==0 && rear==size-1 || rear==front-1)  
+      return 1;
+      else
+      return 0;      
+    }
 
 };
- 
-int main()
-{
 
-Queue q(5);
+// Main function
+int main() {
+    circularQueue q(5);
 
-q.enqueue(7);
-q.enqueue(18);
+    q.enqueue(7);
+    q.enqueue(18);
 
-cout<<"front element of queue: "<<q.peakfront()<<endl;
-q.dequeue();
- cout<<"front element of queue: "<<q.peakfront()<<endl;
+    cout << "front element of queue: " << q.peakfront() << endl;
+    q.dequeue();
+    cout << "front element of queue: " << q.peakfront() << endl;
 
-cout<<"size of queue: "<<q.queuesize()<<endl;
+    cout << "size of queue: " << q.queuesize() << endl;
 
-q.dequeue();
+    q.dequeue();
 
-if(q.isempty())
-cout<<"queue is empty\n";
-else
-cout<<"queue is not empty\n";
- 
- 
+    if (q.isempty())
+        cout << "queue is empty\n";
+    else
+        cout << "queue is not empty\n";
+
+        q.enqueue(9);
+
+ if (q.isempty())
+        cout << "queue is empty\n";
+    else
+        cout << "queue is not empty\n";
+
+    cout << "size of queue: " << q.queuesize() << endl;
+  
+    cout << "Rear element of queue: " << q.Rear() << endl;
+
+    if (q.isFull())
+        cout << "queue is full\n";
+    else
+        cout << "queue is not full\n";
+
+
     return 0;
 }
