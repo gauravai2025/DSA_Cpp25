@@ -72,6 +72,20 @@ void insert(int val){  //  time complexity- O(1)  and space complexity- O(1)
     return top+1;
  }
 
+void insertatBottom(int x){
+   // base case
+   if(isempty()){
+      insert(x);
+      return ;
+   }
+
+   int val=peak();
+   remove();
+
+   insertatBottom(x);
+
+   insert(val);
+}
 
  };
 
@@ -84,7 +98,9 @@ int main()
 
  st.insert(22);
  st.insert(42);
- st.insert(41);
+ st.insertatBottom(41);
+  cout<<"top element of stack: "<<st.peak()<<endl;
+
  st.insert(20);
  st.insert(7);
  st.insert(11);
