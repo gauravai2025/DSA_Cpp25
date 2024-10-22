@@ -3,26 +3,32 @@ using namespace std;
  
 int main()
 {
+
 int n;
 cin>>n;
-vector<int>arr(n);
-map<int,int>mp;
 
-for(int i=0;i<n;i++){
+multiset<int>tophgt;
 
-    cin>>arr[i];
+while(n--){
 
-    if(mp.empty())
-    mp[arr[i]]=1;
+  int x;
+  cin>>x;
 
-    else{
-      for(auto it:mp){
-        if(it.first>=arr[i])
+  if(tophgt.empty())
+  tophgt.insert(x);
 
-      } 
-    }
+  else{
+    auto it=tophgt.upper_bound(x);
+
+    if(it!=tophgt.end())
+    tophgt.erase(it);
+
+    tophgt.insert(x);
+  }
+
 }
  
+ cout<<tophgt.size()<<endl;
  
  
     return 0;

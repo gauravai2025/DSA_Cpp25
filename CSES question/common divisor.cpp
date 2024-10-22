@@ -1,29 +1,35 @@
 #include<bits/stdc++.h>
 using namespace std;
+
+void divisor(int num,vector<int>&div){
+
+    for(int i=1;i*i<=num;i++){
+        if(num%i==0){
+            div[i]++;
+            if(i!=num/i)
+            div[num/i]++;
+        }
+    }
+
+}
  
 int main()
 {
 int n;
 cin>>n;
 int mx=0;
-vector<int> v(1e6+1,0);
+vector<int>div(1e6+1,0);
 int x;
 
 for(int i=0;i<n;i++){
     cin>>x;
     mx=max(mx,x);
-    v[x]++;
+  divisor(x,div);
 }
-int cnt=0;
-
 
 for(int gcdp=mx;gcdp>=1;gcdp--){
-     cnt=0;
-    for(int j=gcdp;j<=mx;j+=gcdp){
-        cnt+=v[j];
-        
-    }
- if(cnt>=2){
+    
+ if(div[gcdp]>1){
 cout<<gcdp<<endl;
 return 0;
  }

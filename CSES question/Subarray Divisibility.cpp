@@ -18,8 +18,7 @@ using namespace std;
        // handling negative number
        if(rem<0)
        rem+=k;
-
-       if(mp.count(rem)>0)
+       
        ans+=mp[rem];
 
        mp[rem]++;

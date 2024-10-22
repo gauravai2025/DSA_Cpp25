@@ -34,19 +34,32 @@ void insertAtHead(Node* &head, int d) {
     head = temp;
 }
 
-void insertAtTail(Node* &tail, int d) {
-     // new node create
-    Node* temp = new Node(d);
-    tail -> next = temp;
-    tail  = temp;
-}
+// required additional pointer tail in node structure
+// void insertAtTail(Node* &tail, int d) {  
+
+//      // new node create
+//     Node* temp = new Node(d);
+
+//     if(tail==nullptr)
+//     tail=temp;
+//     tail -> next = temp;
+//     tail  = temp;
+// }
 
 void insertAtTail1(Node* &head, int d) {
+
+     if(head==nullptr){
+        insertAtHead(val);
+        return ;
+        }
+
     Node*ptr=new Node(d);
     Node *temp=head;
+
     while(temp->next!=NULL){
         temp=temp->next;
     }
+
     temp->next=ptr;
 }
 
@@ -76,12 +89,16 @@ void insertAtPosition(Node* &tail, Node* & head, int position, int d) {
     }
 
     Node* temp  = head;
-    int cnt = 1;
+    int cnt = 0;
 
-    while(cnt < position-1) {
+    while(cnt < position && temp!=nullptr) {
         temp = temp->next;
         cnt++;
     }
+
+    if(cnt<position)  // insrtion not posible position is greater than length of linked list
+    return ;
+
 
     //inserting at Last Position
     if(temp -> next == NULL) {
@@ -97,7 +114,30 @@ void insertAtPosition(Node* &tail, Node* & head, int position, int d) {
     temp -> next = nodeToInsert;
 }
 
+
+    int get(int index) {
+    
+    Node* curr=head;
+    int cnt=0;
+
+    while(cnt!=index && curr!=nullptr){
+        curr=curr->next;
+        cnt++;
+    }
+
+    if(curr==nullptr)
+    return -1;
+    else
+    return curr->data;
+
+    }
+
 void deleteNode(int position, Node* & head) { 
+
+    if(head==nullptr){
+    cout<<"list is empty\n";
+    return ;
+    }
 
     //deleting first or start node
     if(position == 1) {
@@ -107,6 +147,7 @@ void deleteNode(int position, Node* & head) {
         temp -> next = NULL;
         delete temp;
     }
+
     else
     {
         //deleting any middle node or last node
@@ -281,7 +322,7 @@ int main() {
     removeLoop(head);
     print(head);
 
-    /*
+    
     print(head);
 
     if(isCircularList(head)) {
@@ -290,6 +331,6 @@ int main() {
     else{
         cout << "Linked List is not Circular " << endl;
     }
-    */
+    
     return 0;
 }

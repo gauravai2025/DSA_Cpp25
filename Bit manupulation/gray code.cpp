@@ -30,14 +30,18 @@ using namespace std;
 void gray_code(int num,vector<int>&ans){
 
           vector<string>reslt=sol(num);
+
         int size=reslt.size();
+
         for(int i=0;i<size;i++){
             int val=0;
             reverse(reslt[i].begin(),reslt[i].end());
+
           for(int j=0;j<reslt[i].size();j++){
               if(reslt[i][j]=='1')
               val^=(1<<j);
           }
+          
           ans.push_back(val);
         }
 }
