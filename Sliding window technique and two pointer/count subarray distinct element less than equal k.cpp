@@ -21,6 +21,7 @@ using namespace std;
             left++;
            } 
       }
+      
        val+=(right-left+1);
            
       right++;

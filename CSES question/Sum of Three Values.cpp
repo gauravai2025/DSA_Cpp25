@@ -3,7 +3,7 @@ using namespace std;
 
 void threeSum(vector<int>& nums, int target) {
     int n = nums.size();
-    vector<tuple<int, int, int>> results; // To store the triplet indices
+    vector<vector<int>> results; // To store the triplet indices
 
     // Create a vector of pairs to store the values and their original indices
     vector<pair<int, int>> arr(n);
@@ -18,29 +18,37 @@ void threeSum(vector<int>& nums, int target) {
     for (int i = 0; i < n - 2; ++i) {
         int left = i + 1;
         int right = n - 1;
-
+           
+           // two pointer approach just like in 2 sum
         while (left < right) {
             int sum = arr[i].first + arr[left].first + arr[right].first;
+
             if (sum == target) {
                 results.push_back({arr[i].second, arr[left].second, arr[right].second});
-                break;
-            } else if (sum < target) {
+                break;  // Break the loop if we find a valid triplet
+            } 
+            
+            else if (sum < target) {
                 left++;
-            } else {
+            } 
+            
+            else {
                 right--;
             }
         }
 
-        if (!results.empty()) {
+        if (!results.empty()) {  // only one triplet is needed
             break;
         }
     }
 
     if (results.empty()) {
         cout << "IMPOSSIBLE";
-    } else {
+    } 
+    
+    else {
         for (const auto& result : results) {
-            cout << get<0>(result) << " " << get<1>(result) << " " << get<2>(result) << "\n";
+            cout << result[0] << " " << result[1] << " " << result[2] << "\n";
         }
     }
 }

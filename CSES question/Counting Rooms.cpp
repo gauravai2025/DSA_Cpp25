@@ -14,10 +14,11 @@ void bfs(vector<vector<char>>&grid,int i,int j){
         q.pop();
 
         if(x<0 || x>=grid.size() || y<0 || y>=grid[0].size() || grid[x][y]=='#')
-        continue;
+        continue; // check for out of bound and wall
 
-        grid[x][y]='#';
-
+        grid[x][y]='#';  // mark visited
+        
+        // push all 4 directions
         q.push({x+1,y});
         q.push({x-1,y});
         q.push({x,y+1});
@@ -46,9 +47,9 @@ int count_room=0;
 
 for(int i=0;i<n;i++){
     for(int j=0;j<m;j++){
-        if(grid[i][j]=='.'){
+        if(grid[i][j]=='.'){ //cell is floor
             count_room++;
-            bfs(grid,i,j);
+            bfs(grid,i,j); // call bfs to mark all connected cells/ floor as visited to avoid counting them again all cells in a room are connected
         }
 
     }
