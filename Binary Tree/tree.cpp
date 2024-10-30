@@ -77,6 +77,18 @@ void inorder(node* root) {
 
 }
 
+void reverseinorder(node* root) {
+    //base case
+    if(root == NULL) {
+        return ;
+    }
+
+    reverseinorder(root->right);
+    reverseinorder(root->left);
+    cout << root-> data << " ";
+
+}
+
 void preorder(node* root) {
     //base case
     if(root == NULL) {
@@ -86,6 +98,18 @@ void preorder(node* root) {
     cout << root-> data << " ";
     preorder(root->left);
     preorder(root->right);
+
+}
+
+void reversepreorder(node* root) {
+    //base case
+    if(root == NULL) {
+        return ;
+    }
+
+    cout << root-> data << " ";
+    reversepreorder(root->right);
+    reversepreorder(root->left);
 
 }
 
@@ -101,14 +125,24 @@ void postorder(node* root) {
 
 }
 
+void reversepostorder(node* root) {
+    //base case
+    if(root == NULL) {
+        return ;
+    }
+      
+    reversepostorder(root->right);
+    reversepostorder(root->left);
+    cout << root-> data << " ";
+
+}
+
 
 
 int main() {
 
     node* root = NULL;
-
-  
-  
+    
     //creating a Tree
     root = buildTree(root);
     //1 3 7 -1 -1 11 -1 -1 5 17 -1 -1 -1 
@@ -117,7 +151,7 @@ int main() {
     cout << "Printing the level order traversal output " << endl;
     levelOrderTraversal(root);
 
-    cout << "inorder traversal is:  ";
+    cout<<endl<< "inorder traversal is:  ";
     inorder(root); 
 
     cout << endl << "preorder traversal is:  ";
@@ -125,8 +159,15 @@ int main() {
 
     cout << endl << "postorder traversal is:  ";
     postorder(root); 
+
+      cout<<endl<< "reverseinorder traversal is:  ";
+    reverseinorder(root); 
+
+    cout << endl << "reversepreorder traversal is:  ";
+    reversepreorder(root); 
+
+    cout << endl << "reversepostorder traversal is:  ";
+    reversepostorder(root); 
     
-
-
     return 0;
 }

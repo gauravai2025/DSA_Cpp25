@@ -52,47 +52,36 @@ int main()
     cout<<"enter number of nodes\n";
     cin>>n;
 
-    for(int i=1;i<=n;i++){
+    for(int i=0;i<n;i++){
         make(i);
     }
 
-    int k;
+    int numedge;
     cout<<"enter number of queries to connect nodes ";
-    cin>>k;
+    cin>>numedge;
     
     cout<<"enter node value to connect\n";
     int u,v;
 
-    while(k--){
+
+    while(numedge--){
         cin>>u>>v;
         Unionbyrank(u,v);
 
     }
-
-   // number of connected components/ number of distincts group in undirected graph
-    int connected_ct=0;
-
-    for(int i=1;i<=n;i++){
-        if(findpathcompression(i)==i)
-        connected_ct++;
-    }
-   
-   cout<<"number of distinct groups after connecting nodes \n"<<connected_ct<<endl;
-
-    unordered_map<int,vector<int>>comp;
-    
-     for(int i=0;i<v;i++){
-      comp[findpathcompression(i)].push_back(i);
-     }
      
-     for(auto it:comp){
+     int src,dest;
+     cout<<"enter source and destination node \n";
+     cin>>src>>dest;   
 
-        cout<<"group "<<it.first<<" nodes are ";
-        for(auto i:it.second){
-            cout<<i<<" ";
-        }
-        cout<<endl;
-     }
+     int par1=findpathcompression(src);
+    int par2=findpathcompression(dest);
+      
+
+      if(par1==par2)
+      cout<<" path exist\n";
+      else
+      cout<<"path not exist\n";
 
     return 0;
 }

@@ -13,6 +13,7 @@ Node(int d){
      this->right=NULL;
 }
 };
+
 Node* insert_BST(Node* root,int d){
     // base case
     if(root == NULL){
@@ -27,6 +28,7 @@ Node* insert_BST(Node* root,int d){
 return root;
 
 }
+
 Node* input_data(Node* root){
     cout<<"enter data for root node\n";
     int d;
@@ -71,7 +73,7 @@ void levelOrderTraversal(Node* root) {
 
 
 
-void inorder(Node* root) {
+void inorder(Node* root) {  // sorted in ascending order 
     //base case
     if(root == NULL) {
         return ;
@@ -80,6 +82,18 @@ void inorder(Node* root) {
     inorder(root->left);
     cout << root-> data << " ";
     inorder(root->right);
+
+}
+
+void reverseinorder(Node* root) { // sorted in descending order 
+    //base case
+    if(root == NULL) {
+        return ;
+    }
+
+    reverseinorder(root->right);
+    cout << root-> data << " ";
+    reverseinorder(root->left);
 
 }
 
@@ -95,18 +109,43 @@ void preorder(Node* root) {
 
 }
 
+void reversepreorder(Node* root) {
+    //base case
+    if(root == NULL) {
+        return ;
+    }
+
+    cout << root-> data << " ";
+     reversepreorder(root->right);
+    reversepreorder(root->left);
+
+}
+
 void postorder(Node* root) {
     //base case
     if(root == NULL) {
         return ;
     }
 
-    postorder(root->left);
     postorder(root->right);
+    postorder(root->left);
     cout << root-> data << " ";
 
 }
 
+
+
+void reversepostorder(Node* root) {
+    //base case
+    if(root == NULL) {
+        return ;
+    }
+
+    reversepostorder(root->left);
+    reversepostorder(root->right);
+    cout << root-> data << " ";
+
+}
 
 
  
@@ -117,17 +156,37 @@ int main()
  Node* root=NULL;
  root =input_data(root);
 
- cout<<"level order traversal\n";
+ cout<<"level order traversal: ";
 levelOrderTraversal(root) ;
+
+cout<<endl;
 
 cout << "inorder traversal is:  ";
     inorder(root); 
 
+
     cout << endl << "preorder traversal is:  ";
     preorder(root); 
 
+cout<<endl;
+
     cout << endl << "postorder traversal is:  ";
     postorder(root); 
+
+
+
+cout << "reverseinorder traversal is:  ";
+    reverseinorder(root); 
+
+
+    cout << endl << "reversepreorder traversal is:  ";
+    reversepreorder(root); 
+
+cout<<endl;
+
+    cout << endl << "reversepostorder traversal is:  ";
+    reversepostorder(root); 
+
     
  
     return 0;

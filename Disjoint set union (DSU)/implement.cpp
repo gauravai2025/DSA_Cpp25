@@ -70,5 +70,20 @@ int main()
     cout << "number of distinct groups after connecting nodes \n"
          << connected_ct << endl;
 
+         unordered_map<int,vector<int>>comp;
+    
+     for(int i=0;i<v;i++){
+      comp[findpathcompression(i)].push_back(i);
+     }
+     
+     for(auto it:comp){
+
+        cout<<"group "<<it.first<<" nodes are ";
+        for(auto i:it.second){
+            cout<<i<<" ";
+        }
+        cout<<endl;
+     }
+
     return 0;
 }
