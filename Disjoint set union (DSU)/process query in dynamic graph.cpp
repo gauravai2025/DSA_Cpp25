@@ -1,33 +1,52 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-const int N = 1e5 + 10;
+const int N=1e5+10;
+// declare parent array
+multiset<int>countcomponents;
+
 int parent[N];
-int rankArr[N];
 
-void make(int node) {
-    parent[node] = node;
-    rankArr[node] = 0;  // Initial rank or group size as zero
+// store size of each group
+int Size[N];
+
+void make(int node){
+    // single node self parent
+    parent[node]=node;
+
+    // intial each group of size 1
+    Size[node]=1;
 }
 
-int findPathCompression(int node) {
-    if (parent[node] == node)
-        return node;
-    return parent[node] = findPathCompression(parent[node]);  // Path compression
+int findpathcompression(int node){
+    if(parent[node]==node)
+    return node;
+    // path compression
+    return parent[node]= findpathcompression(parent[node]);
+
 }
 
-void unionByRank(int node1, int node2) {
-    int par1 = findPathCompression(node1);
-    int par2 = findPathCompression(node2);
+void Unionbysize(int node1,int node2){
 
-    if (par1 != par2) {
-        // Attach smaller tree under root of larger tree by rank
-        if (rankArr[par2] > rankArr[par1])
-            swap(par1, par2);
-        parent[par2] = par1;
-        if (rankArr[par1] == rankArr[par2])
-            rankArr[par1]++;
-    }
+   int par1=findpathcompression(node1);
+   int par2=findpathcompression(node2);
+
+// parent of both node not same then merge group else lies in same group
+
+if(par1!=par2){
+
+// find size of group 
+if(Size[par2]>Size[par1])
+// ensure always link small group to large group
+  swap(par1,par2);
+
+parent[par2]=par1;
+countcomponents.erase(countcomponents.find(Size[par1]));
+countcomponents.erase(countcomponents.find(Size[par2]));
+countcomponents.insert(Size[par1]+Size[par2]);
+ 
+Size[par1]+=Size[par2];
+   }
 }
 
 int main() {
@@ -37,6 +56,7 @@ int main() {
 
     for (int i = 1; i <= n; i++) {
         make(i);
+        countcomponents.insert(1);
     }
 
     cout << "Enter the number of queries:\n";
@@ -46,17 +66,21 @@ int main() {
         cin >> type >> u >> v;
 
         if (type == 1) {
-            unionByRank(u, v);
+            Unionbysize(u, v);
         } 
         
         else if (type == 2) {
-            int par1 = findPathCompression(u);
-            int par2 = findPathCompression(v);
+            int par1 = findpathcompression(u);
+            int par2 = findpathcompression(v);
             if (par1 == par2)
                 cout << u << " and " << v << " lie in the same connected component.\n";
             else
                 cout << u << " and " << v << " do not lie in the same connected component.\n";
         } 
+
+        else if(type==3){
+            cout<<"number of connected components: "<<countcomponents.size()<<endl;
+        }
         
         else {
             cout << "Invalid query type!\n";

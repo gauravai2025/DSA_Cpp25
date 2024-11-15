@@ -1,56 +1,46 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 
-    vector< long long int>dp;
+vector<int> dp;
 
-
- long long int solve(int val){
-        
-        // base case target sum achieve
-        
-        if(val==0){
-            return 1;
-        }
-        
-        // sum exceed target sum
-        if(val<0)
+int solve(int val) {
+    // Base case: if val is 0, no steps are needed
+    if (val == 0) {
         return 0;
-        
-        if(dp[val]!=-1)
-        return dp[val];
-        
-        long long num_ways=0;
-        
-         vector<int>dgt;
-         int num=val;
-
-        while(num!=0){
-            dgt.push_back(num%10);
-            num/=10;
-        }
-
-        for(int i=0;i<dgt.size();i++){
-            if(dgt[i])
-           num_ways+=solve(val-dgt[i]);
-        }
-        
-        return dp[val]=num_ways;
-        
     }
 
- 
-int main()
-{
+    // Check if already computed
+    if (dp[val] != -1) {
+        return dp[val];
+    }
 
-int n;
-cin>>n;
+    int minSteps = INT_MAX;
+    int num = val;
 
-int val=n;
+    // Extract digits and try each subtraction
+    while (num >0) {
+        int digit = num % 10;
+        num /= 10;
 
-dp.resize(n+1,-1);
+        // Only consider non-zero digits to avoid infinite recursion
+        if (digit > 0) {
+            minSteps = min(minSteps, solve(val - digit) + 1);
+        }
+    }
 
-cout<<solve(val);
- 
- 
+    // Memoize the result and return
+    return dp[val] = minSteps;
+}
+
+int main() {
+    int n;
+    cin >> n;
+
+    // Initialize the dp array with -1 (uncomputed)
+    dp.resize(n + 1, -1);
+
+    // Compute and print the result
+    cout << solve(n) << endl;
+
     return 0;
 }

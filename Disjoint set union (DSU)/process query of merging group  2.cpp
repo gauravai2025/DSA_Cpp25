@@ -21,7 +21,7 @@ void make(int node){
  
     // intial each group of size 1
     sizegr[node]=1;
-	feq[1]++;
+	  feq[1]++;
 }
  
 int find(int node){
