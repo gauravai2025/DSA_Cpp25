@@ -1,4 +1,3 @@
-
 #include <bits/stdc++.h>
 using namespace std;
 class node {
@@ -14,15 +13,15 @@ class node {
     }
 };
 
+void heightofnode(node* root,int &height,int hgt,int data) {
 
-
- int max_hgt(Node*root){
-    
-    if(root == NULL)
+    if(root==NULL)
     return 0;
-    int left=max_hgt(root->left);
-    int right =max_hgt(root->right);
-    return 1+max(left,right);
+
+    heightofnode(root->left,height,hgt+1,data);
+    if(root->data==data)
+    height=hgt;
+    heightofnode(root->right,height,hgt+1,data);
 
 }
 
@@ -53,7 +52,12 @@ int main() {
    // example input  1 3 7-1 -1 11 -1 -1  5 17 -1 -1 -1 
     //creating a Tree
     root = buildTree(root);
-    cout<<"height of tree: ";
-    cout<<max_hgt(root);
+    int height=0;
+    int data;
+    cout<<"Enter the data of node whose height you want to find: ";
+    cin>>data;
+    heightofnode(root,height,0,data);
+    cout<<"height of tree:  ";
+    cout<<height;
 
     }
