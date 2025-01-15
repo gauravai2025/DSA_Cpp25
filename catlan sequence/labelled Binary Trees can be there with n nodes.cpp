@@ -1,0 +1,51 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int mod=1e9+7;
+// number of binary tree  with n nodes
+
+ int solve(int n,vector<int>&dp){
+
+  // base case
+    if(n<=1)
+    return 1;
+
+    if(dp[n]!=-1)
+    return dp[n];
+    
+    // treat every node as root node calculate number of bst as root i
+     
+    int ans=0;
+
+    for(int i=1;i<=n;i++){
+     ans+=(solve(i-1,dp)*solve(n-i,dp))%mod;
+     ans%=mod;
+    }
+
+    return dp[n]=ans;
+    }
+    
+ int numTrees(int n){
+    vector<int>dp(n+1,-1);
+    return solve(n,dp);
+    }
+ 
+int main()
+{
+
+int n;
+cout<<"enter number of nodes in binary tree"<<endl;
+cin>>n;
+
+int ans=numTrees(n);
+
+for(int i=1;i<=n;i++){
+    ans*=i;
+    ans%=mod;
+}
+
+cout<<ans;
+
+ 
+return 0;
+}
