@@ -2,13 +2,20 @@
 using namespace std;
 
  long long int binomialcofficient(int n,int r){
+
+    if(r>n)
+    return 0;
+
     if(r>n-r)  // ncr=nc(n-r)
     r=n-r;
+
     long long int res=1;
+
     for(int i=0;i<r;i++){
         res*=(n-i);
         res/=(i+1); // ncr=nc(n-r)/r!
     }
+    
     return res;
     // long long int ans=1;
     // long long int r1=1;
