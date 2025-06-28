@@ -315,6 +315,10 @@ void inversefactorial()
 
 ll combination(ll n, ll r, ll m)
 {
+
+    if(r>n)
+    return 0;
+    
     ll val1 = fact[n];
     ll val2 = invfact[n - r];
     ll val3 = invfact[r];

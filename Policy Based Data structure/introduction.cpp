@@ -8,6 +8,7 @@ using namespace __gnu_pbds;
 // define policy based data structure
 typedef tree<int, null_type, less<int>, rb_tree_tag, tree_order_statistics_node_update> pbds;
 
+// find_by_order, order_of_key
 // store the element in sorted order and also provide the index of element in sorted order like 0 based indexing also provide the number of element less than that element
 
 // store element like set only unique element
@@ -50,6 +51,12 @@ int main()
 
   cout << arr.order_of_key(3) << endl;        // number of element less than 3
   cout << arr.order_of_key(size + 2) << endl; // number of element less than 4
+
+  // print ordered set
+  cout<<"ordered set is : ";
+  for(auto ele:arr){
+    cout<<ele<<" ";
+  }
 
   return 0;
 }

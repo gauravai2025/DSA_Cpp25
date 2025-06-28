@@ -66,6 +66,7 @@ stack<int>toposrt;
     
     
 }
+
  }
 
 cout<<"valid topological sort: \n";

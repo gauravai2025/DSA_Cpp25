@@ -12,13 +12,16 @@ while(start<=end){
   
         if(a[mid]==key){
         end=mid-1;
-        ans=mid;}  // search for leftmost occurence of element
+        ans=mid;
+    }  // search for leftmost occurence of element
         
     else if(key>a[mid]){   // position -1 in output means absence of number in array
-    start=mid+1;}
+    start=mid+1;
+}
     
     else if(key<a[mid]){
-    end=mid-1;}
+    end=mid-1;
+}
    
 
 }

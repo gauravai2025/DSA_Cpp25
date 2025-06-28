@@ -28,8 +28,7 @@ using namespace std;
         }
             
         }
-        
-        return mst;
+    return mst;
     }
  
 int main()
@@ -37,7 +36,7 @@ int main()
     int vertices,edges;
     cout<<"Enter the number of vertices and edges\n";
     cin>>vertices>>edges;
-    vector<vector<vector<int>>> graph(vertices);
+    vector<vector<vector<int>>>graph(vertices);
 
     cout<<"Enter the edges and their weights\n";
 
@@ -49,7 +48,5 @@ int main()
     }
 
  cout<<"weight of MST:  "<<spanningTree(vertices,graph);
- 
- 
     return 0;
 }

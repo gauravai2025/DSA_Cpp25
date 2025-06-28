@@ -45,8 +45,7 @@ if(Rank[par2]>Rank[par1])
 }
 	
 	//Function to find sum of weights of edges of the Minimum Spanning Tree.
-    int spanningTree(int V, vector<vector<int>>adj[])
-    {
+    int spanningTree(int V, vector<vector<int>>adj[]){
 
         vector<pair<int,pair<int,int>>>edge;
         
@@ -102,7 +101,5 @@ int main()
     }
     
  cout<<"minimum weight of tree: "<<spanningTree(vertices,adj);
-
- 
-    return 0;
+ return 0;
 }

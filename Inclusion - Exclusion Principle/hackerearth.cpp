@@ -1,14 +1,16 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+// Our Monk visits a neighbourhood school to teach kids, once a week. This week, they are studying the famous novel "The Three Musketeers" by Alexandre Dumas. As Monk is a fun teacher, he wants to enact a scene from the novel and hence, must choose 3 children from the class as the musketeers.
+// There are N children in his class. Monk is given the list of names of the students. Help Monk find the number of ways in which he can choose the musketeers, such that the names of the three children have atleast a vowel in common i.e. the names must have atleast one of ('a', 'e', 'i', 'o', 'u') in common. Two ways are considered different only if atleast one of the chosen student is different.
+
 int main() {
 	int t;
 	cin>>t;
 	while(t--){
 	int num;
 	cin >> num;   
-	vector<string>name(num);
-	vector<vector<int>>pos(num,vector<int>(5));
+	vector<int>posmask(num,0);
 	unordered_map<char,int>mp;
 	mp['a']=0;
 	mp['e']=1;
@@ -17,59 +19,38 @@ int main() {
 	mp['u']=4;
 
 	for(int i=0;i<num;i++){
-	 cin>>name[i];
-	 int size=name[i].size();
-	for(int j=0;j<size;j++){
-	if(name[i][j]=='a' ||name[i][j]=='e' || name[i][j]=='i'||name[i][j]=='o'||name[i][j]=='u' )
-
-	pos[i][mp[name[i][j]]]=1;
+		string str;
+		cin>>str;
+		for(char ch:str){
+		if(ch=='a' || ch=='e' || ch=='i' || ch=='o' || ch=='u' )	
+		posmask[i]|=(1<<mp[ch]);
 		}
 	}
-
-int cnt=0;
- vector<long long int>count;
-
-	for(int i=0;i<5;i++){
-		cnt=0;
-    for(int j=0;j<num;j++){
-		if(pos[j][i]==1)
-		cnt++;
-
-		}
-		count.push_back(cnt);
-	}
-	
-    for(int i=0;i<5;i++){
-        if(count[i]>=3)
-        count[i]=count[i]*(count[i]-1)*(count[i]-2)/6;
-		else
-        count[i]=0;
-	}
-
-     // inclusion exclusion principle
     
-    int countsetbit=0;
-    long  long int temp=0;
-    long long int ans=0;
-     for (int i = 1; i < (1<<5); i++){
-       temp=0;
-      countsetbit=0;
-      for (int j = 0; j< 5; j++){
+	long long int ans=0;
 
-        if(i&(1<<j)){
-        countsetbit++;
-        temp+=count[j];
-      }
-      }
-      if(countsetbit&1)
-      ans+=temp;
-      else
-      ans-=temp;
-     }
-   
-//   for(int i=0;i<5;i++){
-//     ans+=count[i];
-//   }
+	for(int i=1;i<(1<<5);i++){ // required common vowel
+	long long int cnt=0;
+     for(int n=0;n<num;n++){
+		if((i&(posmask[n]))==i)
+        cnt++;
+	 }
+   long long numways=cnt*(cnt-1)*(cnt-2)/6;
+
+   int val=i;
+  int cntbit=0;
+   while(val!=0){
+
+	if(val&1)
+	cntbit++;
+	val=val>>1;
+   }
+
+   if(cntbit&1)
+   ans+=numways;
+   else
+    ans-=numways;	 
+	}
 	
 	cout<<ans<<endl;
 }

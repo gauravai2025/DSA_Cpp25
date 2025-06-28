@@ -4,7 +4,7 @@ using namespace std;
 
 // d is the number of characters in the input alphabet
 #define d 256
-const int q= INT_MAX;
+const int q= 1e9+7;
 
 /* pat -> pattern
 	txt -> text
@@ -15,12 +15,13 @@ void search(string pat, string txt,vector<int> &ans)
 	int M = (pat).length();
 	int N = (txt).length();
 	int i, j;
-	long long int p = 0; // hash value for pattern
+
+long long int p = 0; // hash value for pattern
 long long	int t = 0; // hash value for txt
 long long	int h = 1;
 
 	// The value of h would be "pow(d, M-1)%q"
-	for (i = 0; i < M - 1; i++){
+	for (i = 1; i<M ; i++){
 		h = (h * d) % q;
     }
 	// Calculate the hash value of pattern and first
@@ -28,10 +29,15 @@ long long	int h = 1;
     // we mod to avoid overflowing of value but we should
 	// take as big q as possible to avoid the collison
 	for (i = 0; i < M; i++) {
-		p = (d * p + pat[i]) % q;
-		t = (d * t + txt[i]) % q;
+		p = (d * p )% q;
+		p+= pat[i] ;
+		p = p % q;
+		t = (d * t)%q;
+		t += txt[i];
+		t = t % q;
 	}
-
+       
+	   // rolling hash function
 	// Slide the pattern over text one by one
 	for (i = 0; i <= N - M; i++) {
 
@@ -45,20 +51,23 @@ long long	int h = 1;
 					break;
 				}
 			}
-
+            
+			// pattern found
 			if (j == M)
-				ans.push_back(i);
+			ans.push_back(i);
 		}
 
 		// Calculate hash value for next window of text:
 		// Remove leading digit, add trailing digit
-		if (i < N - M) {
-			t = (d * (t - txt[i] * h) + txt[i + M]) % q;
-
+		if (i < N - M){
+			t = d * (t - txt[i] * h) ;  // remove leading digit and left shift
+			t%=q;
+			t+=txt[i + M]; // add trailing digit
+			t%=q;
 			// We might get negative value of t, converting
 			// it to positive
 			if (t < 0)
-				t = (t + q);
+			t = (t + q);
 		}
 	}
 }
@@ -66,16 +75,21 @@ long long	int h = 1;
 
 int main()
 {
-   string  txt;
+string  txt;
 string pat;
+
 cout<<"enter text\n";
   getline(cin, txt);
+
 cout<<"enter pattern\n";
   getline(cin, pat);
+
 vector<int> ans;
 search(pat, txt,ans);
+
     for(int i=0;i<ans.size();i++)
-        cout<<ans[i]<<" ";
+    cout<<ans[i]<<" ";
+
 	return 0;
 }
 

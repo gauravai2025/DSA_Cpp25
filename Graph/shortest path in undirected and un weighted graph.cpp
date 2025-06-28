@@ -81,7 +81,7 @@ cin>>m;
 
   int source=1,destination=n;
  
- stack<int>path;
+stack<int>path;
 bool ispossible=1;
 
   while(destination!=source){

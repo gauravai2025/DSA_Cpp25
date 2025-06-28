@@ -31,6 +31,7 @@ class Trie{
 
         // Insert the integer bits directly into the Trie
         void insert(int num) {
+            
             TrieNode* node = root;
 
             for (int i = 31; i >= 0; i--) {
@@ -49,6 +50,7 @@ class Trie{
 int  xorcalculate(int num,int maxor){
 
     TrieNode* curr=root;
+    
     for(int i=31;i>=0;i--){
 
       int bitnum=(num&(1<<i))!=0;

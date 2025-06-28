@@ -2,58 +2,86 @@
 using namespace std;
 typedef long long ll;
 
-const int mod = 1e9+7;
+const int mod = 1e9+7;    // time complexity d^3*log(n)  d dimension of matrix
 
-void matrix_multiplication(ll A[2][2], ll B[2][2]) {
-    ll ans[2][2] = {{0, 0}, {0, 0}};
-    for (int i = 0; i < 2; i++) {
-        for (int j = 0; j < 2; j++) {
-            for (int k = 0; k < 2; k++) {
-                ans[i][j] = (ans[i][j] + A[i][k] * B[k][j] % mod) % mod;
+void matrix_multiplication(vector<vector<ll>>&base, vector<vector<ll>>&result, ll row, ll col) {
+
+    vector<vector<ll>>temp(row,vector<ll>(col,0));
+  
+    for (int i = 0; i <row; i++) {
+        for (int j = 0; j <col; j++) {
+           ll val= 0;
+            for (int k = 0; k <col; k++) {
+              val+= (base[i][k] * result[k][j]) % mod;
+                val%=mod;
             }
+            temp[i][j] = val;
         }
     }
+
     // Copy the result into matrix C
-    for (int i = 0; i < 2; i++) {
-        for (int j = 0; j < 2; j++) {
-            B[i][j] = ans[i][j];
+    for (int i = 0; i <row; i++) {
+        for (int j = 0; j <col; j++) {
+            result[i][j] = temp[i][j];
         }
     }
+
+  
 }
 
-void matrix_exponentiation(ll trp[2][2], ll n, ll result[2][2]) {
+void matrix_exponentiation(vector<vector<ll>>&base,vector<vector<ll>>&result, ll row,ll col, ll exp) {
 
-    while (n>0) {
-
-        if (n&1) {
-         matrix_multiplication( trp, result);
+    while (exp > 0) {
+        if (exp&1) {
+            matrix_multiplication(base, result, row,col);
         }
+        matrix_multiplication(base, base, row,col);
+        exp >>= 1;
+    }
 
-        matrix_multiplication(trp, trp);
-        n=n>>1;
-    }    
 }
 
 int main() {
-    ll n;
-    cout << "Enter nth value:\n";
-    cin >> n;
 
-    ll fib[2] = {0, 1};
-
-    if (n < 2) {
-        cout << fib[n] << endl;
-        return 0;
+int t;
+cin >> t;
+while (t--){
+    int a,b,n;
+    cin>>a>>b>>n;
+  
+ 
+    vector<vector<ll>>mat(2,vector<ll>(2,0));
+    vector<vector<ll>>result(2,vector<ll>(2,0));
+    
+    for (ll i = 0; i < 2; i++) {
+        for (ll j = 0; j <2; j++) {
+            if(i==0 && j==0)
+            mat[i][j]=0;
+            else 
+            mat[i][j]=1;
+        }
     }
 
-    ll trp[2][2] = {{0, 1}, {1, 1}};
-    ll result[2][2] = {{1, 0}, {0, 1}};  // Identity matrix
-    n--;
+    // Initialize result as the identity matrix
+    for (ll i = 0; i < 2; i++) {
+        for (ll j = 0; j <2; j++) {
+            result[i][j] = (i == j) ? 1 : 0;
+        }
+    }
 
-    matrix_exponentiation(trp, n, result);
+   
 
-    ll nth_fib = (fib[0] * result[0][1] + fib[1] * result[1][1]) % mod;
-    cout << nth_fib << endl;
+    matrix_exponentiation(mat, result, 2,2, n);
+
+    vector<vector<long long int>>fib0={{a,b}};
+
+    matrix_multiplication(fib0,result, 1,2);
+
+    cout<<result[0][0]<<endl;
+        
+    
+
+}
 
     return 0;
 }

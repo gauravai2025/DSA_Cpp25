@@ -47,6 +47,7 @@ class Trie{
 
       
 void xorcalculate(int num,int &maxor){
+    
     TrieNode* curr=root;
 
     for(int i=31;i>=0;i--){
@@ -80,8 +81,6 @@ int max_xor(vector<int>& nums){
     return rslt;
 
 }
-
-
 
 };
 

@@ -55,6 +55,7 @@ while(edge--){
     adj[u].push_back(v);
 }
 
+
 if(cycle_detect(adj,vertex))
 cout<<"cycle exist\n";
 else

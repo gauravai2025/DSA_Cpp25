@@ -1,10 +1,15 @@
 #include<bits/stdc++.h>
 using namespace std;
- int const N=100000;
+ int const N=500000;
  int const M=1000000007;
  
 int main()
 {
+
+    ios::sync_with_stdio(false);
+    cin.tie(0);
+    cout.tie(0);
+
 // precomputation of fibonacci sequence
     long long int fib[N+1];
     fib[0]=0;
@@ -27,8 +32,5 @@ for(int i=0;i<q;i++){
 for(int i=0;i<q;i++){
     cout<<fib[arr[i]]<<"\n";
 }
-
- 
- 
     return 0;
 }

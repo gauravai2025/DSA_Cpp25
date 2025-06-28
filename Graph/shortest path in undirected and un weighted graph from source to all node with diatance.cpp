@@ -87,8 +87,6 @@ cin>>src;
         cout<<i<<"   "<<distance[i]<<endl;
 
     }
-
-
-
+    
     return 0;
 }

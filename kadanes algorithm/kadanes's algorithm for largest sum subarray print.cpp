@@ -23,6 +23,9 @@ for(int i=0;i<size;i++){
 
 }
 
+cout<<"subarray range\n";
+cout<<st<<" "<<end<<endl;
+
 for(int i=stans;i<=end;i++){
     cout<<arr[i]<<" ";
 }

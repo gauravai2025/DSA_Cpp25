@@ -7,6 +7,7 @@ using namespace std;
     bool isterminal;
     int childcnt;
     TrieNode* children[26];
+
     TrieNode(char ch){
         data=ch;
         for(int i=0;i<26;i++){
@@ -57,6 +58,7 @@ class Trie {
 
 
 void LCP(string first,string &ans){
+    
     for(int i=0;i<first.size();i++){
         char ch=first[i];
         if(root->childcnt==1){

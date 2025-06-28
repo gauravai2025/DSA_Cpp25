@@ -137,6 +137,68 @@ void reversepostorder(node* root) {
 
 }
 
+void inorderiterative(node* root,vector<int>&ans){
+
+  stack<TreeNode*>st;
+  node* currnode=root;
+
+  while(true){
+
+   if(currnode!=nullptr){
+    st.push(currnode);
+    currnode=currnode->left;
+
+    }
+
+    else{
+
+    if(st.empty())
+     return ;
+
+    node* top=st.top();
+    st.pop();
+
+    cut<<top->val<<" ";
+    currnode=top->right;
+
+    }
+
+   }
+
+   }
+
+   void preorderiterative(TreeNode* root,vector<int>&ans) {
+
+
+  stack<TreeNode*>st;
+  TreeNode* currnode=root;
+
+  while(true){
+
+   if(currnode!=nullptr){
+
+    st.push(currnode);
+    ans.push_back(currnode->val);
+    currnode=currnode->left;
+
+    }
+
+    else{
+
+    if(st.empty())
+     return ;
+
+    TreeNode* top=st.top();
+    st.pop();
+
+    currnode=top->right;
+
+    }
+
+   }
+
+   }
+
 
 
 int main() {
@@ -160,7 +222,7 @@ int main() {
     cout << endl << "postorder traversal is:  ";
     postorder(root); 
 
-      cout<<endl<< "reverseinorder traversal is:  ";
+    cout<<endl<< "reverseinorder traversal is:  ";
     reverseinorder(root); 
 
     cout << endl << "reversepreorder traversal is:  ";
@@ -168,6 +230,12 @@ int main() {
 
     cout << endl << "reversepostorder traversal is:  ";
     reversepostorder(root); 
+    
+    cout << endl << "iterative inorder traversal is:  ";
+    inorderiterative(root); 
+
+    cout << endl << "iterative preorder traversal is:  ";
+    preorderiterative(root); 
     
     return 0;
 }

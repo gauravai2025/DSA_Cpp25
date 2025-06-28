@@ -2,6 +2,7 @@
 using namespace std;
 
 void bfs( int source ,map<int,vector<int>>&adj, map<int,bool>&visited,vector<int>&node ){
+
      queue<int>q;
      q.push(source);
      visited[source]=1;
@@ -21,8 +22,6 @@ void bfs( int source ,map<int,vector<int>>&adj, map<int,bool>&visited,vector<int
      }
 
     }
-
-
 
 int countCompleteComponents(int n, vector<vector<int>>&edges) {
          
@@ -68,11 +67,8 @@ int countCompleteComponents(int n, vector<vector<int>>&edges) {
                 ans++;
             }
          }
-
-         return ans;
+        return ans;
 }
-
-
 
 int main() {
 

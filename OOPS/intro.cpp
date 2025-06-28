@@ -11,9 +11,9 @@ class Hero {
     char level;
     static int timeToComplete;
 
-    Hero() {
-        cout << "Simple constructor called" << endl;
-        name = new char[100];
+    Hero(){
+    cout << "Simple constructor called" << endl;
+    name = new char[100];
     }
 
     //Paramerterised Constructor
@@ -26,10 +26,10 @@ class Hero {
         this -> health = health;
     }
 
-    //copy constructor
+    // define copy constructor  for deep copy
     Hero(Hero& temp) {
         char *ch = new char[strlen(temp.name) + 1];
-        strcpy(ch, temp.name);
+        strcpy(ch, temp.name); //copying name
         this->name = ch;
 
         cout << "Copy constructor called" << endl;
@@ -45,7 +45,7 @@ class Hero {
         cout << endl << endl;
     }
 
-    int getHealth() {
+    int getHealth() { // getter
         return health;
     }
 
@@ -53,8 +53,15 @@ class Hero {
         return level;
     }
 
-    void setHealth(int h) {
-        health = h;
+    void setHealth(int h,string pswd) { // setter
+
+        if (pswd == "1234") {
+            this->health = h;
+        } 
+        else {
+            cout << "Invalid password" << endl;
+        }
+       
     }
 
     void setLevel(char ch) {
@@ -95,13 +102,16 @@ int main() {
     // Hero a;
 
     // //Dynamic
+    // Hero *b = new Hero();
     Hero *b = new Hero();
+
     //manually destructor call
     delete b;
 
     Hero hero1;
-    hero1.setHealth(12);
-    hero1.setLevel('D');
+    hero1.setHealth(12,"fer"); // use setter
+    hero1.setLevel('D');    
+    cout<<""<<hero1.getHealth(); // use getter
     char name[7] = "Babbar";
     hero1.setName(name);
 
@@ -109,6 +119,7 @@ int main() {
 
 //     //use default copy constructor
 
+//     // shallow copy default copy constructor
     Hero hero2(hero1);
     hero2.print();
     Hero hero2 = hero1;
@@ -118,6 +129,7 @@ int main() {
 
     hero2.print();
 
+// using assignment copy operator
     hero1 = hero2;
 
     hero1.print();
@@ -139,7 +151,7 @@ int main() {
     
     //static allocation
     Hero a;
-    a.setHealth(80);
+    a.setHealth(80,"1234");
     a.setLevel('B');
     cout << "level is  " << a.level << endl;
     cout << " health is " << a.getHealth() << endl;
@@ -147,7 +159,7 @@ int main() {
     //dynamicallly
     Hero *b = new Hero;
     b->setLevel('A');
-    b->setHealth(70);
+    b->setHealth(70,"1234");
     cout << "level is  " << (*b).level << endl;
     cout << " health is " << (*b).getHealth() << endl;
 
@@ -155,12 +167,12 @@ int main() {
     cout << " health is " << b->getHealth() << endl;
     
     // //creation of Object
-    Hero ramesh;   
+    Hero ramesh;   // ramesh.Hero() called
     cout << "Size of Ramesh is " << sizeof(ramesh) << endl;
 
     cout << "Ramesh health is " << ramesh.getHealth() << endl;
     //use setter
-    ramesh.setHealth(70);
+    ramesh.setHealth(70,"1234");
     ramesh.level = 'A';
 
     cout << "health is: " << ramesh.getHealth() << endl; 
