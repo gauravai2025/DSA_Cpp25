@@ -5,7 +5,7 @@ using namespace std;
 void subset(vector<int>&arr,int size){
    
   cout<<"The subset are:\n";
-    for(int i=0;i<(1<<size);i++){
+    for(int i=1;i<(1<<size);i++){
        vector<int>ans;
         for(int j=0;j<size;j++){
          if(i&(1<<j))

@@ -1,27 +1,29 @@
 #include<bits/stdc++.h>
 using namespace std;
  
- int lower_bound(int a[], int size, int val) {
-    int lo = 0;
-    int hi = size - 1;
-    int mid;
-    
-    while (hi - lo > 1) {
-        mid = lo + (hi - lo) / 2;
-
-        if (a[mid] <val)
-            lo = mid+1;
-        else
-            hi = mid ;
-    }
-    
-    if (a[lo] >=val)
-        return lo;
-
-    if (a[hi] >=val)
-        return hi;
-    
-    return -1; // No value less than or equal to val found lower bound not found return size in stl lower bound
+ int lowerBound(vector<int>& arr, int target){
+        
+    int size=arr.size();
+        
+    int start=0,end=size-1;
+    int ansidx=-1;
+    int mid=-1;
+     
+     while(start<=end){
+         
+     mid=start+(end-start)/2;
+     
+     if(arr[mid]>=target){
+            
+     ansidx=mid;
+      end=mid-1;
+     }
+     
+     else
+    start=mid+1;
+     }
+     
+     return ansidx;
  }
 
  
@@ -30,19 +32,19 @@ int main()
   int size;
   cout<<"enter size of array\n";
   cin>>size;
-  int a[size];
+  vector<int> arr(size);
     cout<<"enter  element of array in sorted order"<<"\n";
     for(int i=0;i<size;i++){
-        cin>>a[i];
+        cin>>arr[i];
     }
  cout<<"enter element to find lower bound\n";
  int val;
  cin>>val;
- int idx=lower_bound(a,size,val);
+ int idx=lowerBound(arr,val);
  if(idx==-1)
  cout<<"lower bound not found\n";
  else
-cout<<"lower bound at index: "<<idx<<" and value is "<<a[idx];
+cout<<"lower bound at index: "<<idx<<" and value is "<<arr[idx];
  
  
     return 0;
