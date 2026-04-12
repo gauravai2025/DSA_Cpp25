@@ -73,7 +73,7 @@ if(Rank[par2]>Rank[par1])
 
         for(int i=0;i<edge.size();i++){
           int u=  edge[i].second.first;
-         int v= edge[i].second.second;
+          int v= edge[i].second.second;
             
         if(findpathcompression(u)!=findpathcompression(v)){
         costmst+=edge[i].first;

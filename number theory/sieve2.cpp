@@ -12,7 +12,8 @@ int main(){
 
   ll sqr = sqrt(MAX);
   primes[0] = false;
-  primes[1] = false;
+  primes[1] = false; 
+  
   for(ll p=2; p<=sqr; p++){
     if(primes[p]) {
       for(ll i = p*p; i<=MAX; i+=p) {

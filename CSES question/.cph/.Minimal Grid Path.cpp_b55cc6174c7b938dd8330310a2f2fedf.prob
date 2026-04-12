@@ -1,0 +1,1 @@
+{"name":"Local: Minimal Grid Path","url":"c:\\Users\\HP\\OneDrive\\Desktop\\DSA_Cpp25\\CSES question\\Minimal Grid Path.cpp","tests":[{"id":1775930816830,"input":"2\nAA\nAA","output":"AAABACA"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\Users\\HP\\OneDrive\\Desktop\\DSA_Cpp25\\CSES question\\Minimal Grid Path.cpp","group":"local","local":true}

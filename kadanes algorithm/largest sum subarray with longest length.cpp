@@ -2,16 +2,50 @@
 using namespace std;
 
 long long int max_sum_subarray(vector<int>&arr,int size){
+    int st=0,end=0;
    long long int maxsum=LONG_MIN;
     long long int sum=0;
-    
+    int stans=-1;
+    int ans=0;
+
 for(int i=0;i<size;i++){
     sum+=arr[i];
-     maxsum=max(maxsum,sum);
-    if(sum<0)
+
+    if(maxsum<sum){
+        maxsum=sum;
+        end=i;
+        stans=st;
+        ans=end-stans+1;
+    }
+
+    else if(sum==maxsum){
+     if(i-st+1>ans){
+     ans=i-st+1;
+     end=i;
+     stans=st;
+
+     }
+     
+    }
+
+
+    if(sum<0){
     sum=0;
+    st=i+1;
+    // end=i+1;
+    }
 
 }
+
+cout<<"subarray range\n";
+cout<<stans<<" "<<end<<endl;
+cout<<"longest subarray: "<<ans<<endl;
+
+for(int i=stans;i<=end;i++){
+    cout<<arr[i]<<" ";
+}
+
+cout<<endl;
 return maxsum;
 
 

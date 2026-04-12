@@ -16,7 +16,7 @@ vector<int> dijkstra(vector<vector<pair<long long int,long long int>>>&adj, int 
         while(!st.empty()){
             
             auto top=*(st.begin());
-          long long   int nodedistance=top.first;
+           long long   int nodedistance=top.first;
             int topnode=top.second;
             
             st.erase(st.begin());
@@ -56,14 +56,13 @@ cout<<"Enter the edges in the format u v w"<<endl;
         adj[v].push_back({u,w});
     }
 
-   int src;
+    int src;
     cout<<"Enter the source vertex"<<endl;
     cin>>src;
    
-   vector<long long int>distance( vertices,LONG_MAX);
+   vector<long long int>distance(vertices,LONG_MAX);
 
     dijkstra(adj,src,distance);
-
 
     for(int i=0;i<vertices;i++){
         cout<<"The shortest distance between "<<src<<" and "<<i<<" is "<<distance[i]<<endl;

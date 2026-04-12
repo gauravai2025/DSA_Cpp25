@@ -33,7 +33,6 @@ vector<string> input_space_separated() {
 
 vector<string> input_array_size_not_given() {
     vector<string> arr;
-    string input;
     cout << "Enter array elements (press Enter after each element, press Enter twice to stop):" << endl;
     while (true) {
         string element;

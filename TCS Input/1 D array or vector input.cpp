@@ -17,7 +17,6 @@ void input_array_format(vector<int>&arr) {
             arr.push_back(num);
         }
     }
-    
 }
 
  void input_space_separated(vector<int>&arr) {

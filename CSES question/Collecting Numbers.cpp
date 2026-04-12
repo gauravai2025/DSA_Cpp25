@@ -1,4 +1,4 @@
-#include<bits/stdc++.h>
+    #include<bits/stdc++.h>
 using namespace std;
  
 int main()
@@ -21,8 +21,8 @@ int  prev=arr[0].second;
 
 for(int i=1;i<n;i++){
 
-    if(abs(arr[i].second-prev)==1){
-       prev=arr[i].second; 
+    if(arr[i].second-prev>0){
+    prev=arr[i].second; 
     continue;
 }
 
@@ -33,7 +33,7 @@ else{
  
 }
 
-cout<<cnt-1<<endl;
+cout<<cnt<<endl;
  
     return 0;
 }

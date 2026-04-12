@@ -39,7 +39,7 @@ void kosaraju(vector<vector<int>> &adj,vector<vector<int>>&component){
         dfstoposort(adj,i,st,visited);
         }
         
-        // transpose reverse graph of graph
+        // transpose / reverse graph of graph
         
         vector<vector<int>>adjrev(vertex);
         
