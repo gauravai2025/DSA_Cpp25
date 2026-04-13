@@ -1,0 +1,97 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+// Given a weighted, undirected and connected graph where you have given adjacency list adj. You have to find the shortest distance of all the vertices from the source vertex src, and return a list of integers denoting the shortest distance between each node and source vertex src.
+
+// Note: The Graph doesn't contain any negative weight edge.
+
+void dijkstra(vector<vector<pair<long long,long long int>>>& adj, int src,vector<long long>& dist, vector<int>& parent){
+                     
+        int vertices=adj.size();
+        set<pair<long long int,long long int>>st;
+        
+        st.insert({0,src});
+        dist[src]=0;
+        
+        while(!st.empty()){
+            
+            auto top=*(st.begin());
+           long long   int nodedistance=top.first;
+            int topnode=top.second;
+            
+            st.erase(st.begin());
+            
+            for(auto nbr:adj[topnode]){
+                
+                if((nodedistance+nbr.second)<dist[nbr.first]){
+                    
+                auto findnode=st.find({dist[nbr.first],nbr.first});
+                
+                if(findnode!=st.end())
+                st.erase(findnode);
+                
+                st.insert({nodedistance+nbr.second,nbr.first});
+                dist[nbr.first]=nodedistance+nbr.second;
+                parent[nbr.first] = topnode; 
+                }
+            }
+        }
+        
+    }
+
+
+    void printPath(int dest, vector<int>& parent) {
+
+     if(dest == -1) return;
+
+    vector<int> path;
+    while(dest != -1){
+        path.push_back(dest);
+        dest = parent[dest];
+    }
+
+    reverse(path.begin(), path.end());
+
+    for(auto node : path)
+        cout << node << " ";
+    cout << endl;
+}
+ 
+int main()
+{
+    int vertices,edges;
+    cout<<"Enter the number of vertices and edges"<<endl;
+    cin>>vertices>>edges;
+
+    vector<vector<pair<long long  int,long long int>>>adj(vertices+1);
+
+cout<<"Enter the edges in the format u v w"<<endl;
+
+    while(edges--){
+        int u,v,w;
+        cin>>u>>v>>w;
+        adj[u].push_back({v,w});
+        adj[v].push_back({u,w});
+    }
+
+    int src;
+    cout<<"Enter the source vertex"<<endl;
+    cin>>src;
+
+    int dest;
+    cout<<"Enter destination vertex: \n";
+    cin >> dest;
+
+   
+   vector<long long int>distance(vertices,LONG_MAX);
+   vector<int>parent(vertices, -1);
+
+    dijkstra(adj,src,distance,parent);
+
+    cout << "Shortest distance: " << distance[dest] << endl;
+
+     cout << "Path: ";
+    printPath(dest, parent);
+    
+    return 0;
+}
