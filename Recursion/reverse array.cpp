@@ -23,8 +23,10 @@ int main()
 
      reverse1(arr,ans,size-1);
      cout<<"reverse array is\n";
+
         for(int i=0;i<size ;i++){
-            cout<<ans[i]<<" ";}
+            cout<<ans[i]<<" ";
+        }
  
  
     return 0;

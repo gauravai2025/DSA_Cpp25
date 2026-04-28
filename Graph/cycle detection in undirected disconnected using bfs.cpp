@@ -35,7 +35,6 @@ bool cycle_bfs(int source,vector<vector<int>>&adj, vector<int>&visited ,int vert
   
     vector<int>visited(vertex,0);
 
-   
    for(int i=0;i<vertex;i++){
     if(!visited[i]){
         if(cycle_bfs(i,adj,visited))

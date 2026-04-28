@@ -1,31 +1,71 @@
-#include <bits/stdc++.h>
+#include<bits/stdc++.h>
 using namespace std;
 
-long long solve(int i, int j, vector<long long>& arr,
-                vector<vector<long long>>& dp) {
+long long int solve(vector<long long int >&arr,int st,int end,bool flag,vector<vector<long long int >>&dp){
+   
+   // base case
+   if(end<st)
+    return 0;
 
-    if (i == j) return arr[i];
+if(dp[st][end]!=-1)
+return dp[st][end];
 
-    if (dp[i][j] != LLONG_MIN)
-        return dp[i][j];
+    if(flag){
+return dp[st][end]= max(arr[st]+solve(arr,st+1,end,!flag,dp),arr[end]+solve(arr,st,end-1,!flag,dp));
+    }
 
-    long long takeLeft = arr[i] - solve(i + 1, j, arr, dp);
-    long long takeRight = arr[j] - solve(i, j - 1, arr, dp);
+    else{
+    return dp[st][end]= min(solve(arr,st+1,end,!flag,dp),solve(arr,st,end-1,!flag,dp));
+    }
+}
+ 
+int main()
+{
+int n;
+cin>>n;
+vector<long long int >arr(n);
 
-    return dp[i][j] = max(takeLeft, takeRight);
+for(int i=0;i<n;i++){
+    cin>>arr[i];
 }
 
-int main() {
-    int n;
-    cin >> n;
+vector<vector<long long int>>dp(n,vector<long long int >(n,-1));
 
-    vector<long long> arr(n);
-    for (int i = 0; i < n; i++) cin >> arr[i];
+cout<<solve(arr,0,n-1,1,dp);
+return 0;
+}#include<bits/stdc++.h>
+using namespace std;
 
-    vector<vector<long long>> dp(n, vector<long long>(n, LLONG_MIN));
+long long int solve(vector<long long int >&arr,int st,int end,bool flag,vector<vector<long long int >>&dp){
+   
+   // base case
+   if(end<st)
+    return 0;
 
-    long long diff = solve(0, n - 1, arr, dp);
-    long long total = accumulate(arr.begin(), arr.end(), 0LL);
+if(dp[st][end]!=-1)
+return dp[st][end];
 
-    cout << (total + diff) / 2 << endl;
+    if(flag){
+return dp[st][end]= max(arr[st]+solve(arr,st+1,end,!flag,dp),arr[end]+solve(arr,st,end-1,!flag,dp));
+    }
+
+    else{
+    return dp[st][end]= min(solve(arr,st+1,end,!flag,dp),solve(arr,st,end-1,!flag,dp));
+    }
+}
+ 
+int main()
+{
+int n;
+cin>>n;
+vector<long long int >arr(n);
+
+for(int i=0;i<n;i++){
+    cin>>arr[i];
+}
+
+vector<vector<long long int>>dp(n,vector<long long int >(n,-1));
+
+cout<<solve(arr,0,n-1,1,dp);
+return 0;
 }

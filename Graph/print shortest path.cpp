@@ -5,8 +5,8 @@ using namespace std;
 
 // Note: The Graph doesn't contain any negative weight edge.
 
-vector<int> dijkstra(vector<vector<pair<long long int,long long int>>>&adj, int src,vector<long long int>&dist) {
-      
+void dijkstra(vector<vector<pair<long long,long long int>>>& adj, int src,vector<long long>& dist, vector<int>& parent){
+                     
         int vertices=adj.size();
         set<pair<long long int,long long int>>st;
         
@@ -32,12 +32,30 @@ vector<int> dijkstra(vector<vector<pair<long long int,long long int>>>&adj, int 
                 
                 st.insert({nodedistance+nbr.second,nbr.first});
                 dist[nbr.first]=nodedistance+nbr.second;
+                parent[nbr.first] = topnode; 
                 }
             }
         }
         
-        return dist;
     }
+
+
+    void printPath(int dest, vector<int>& parent) {
+
+     if(dest == -1) return;
+
+    vector<int> path;
+    while(dest != -1){
+        path.push_back(dest);
+        dest = parent[dest];
+    }
+
+    reverse(path.begin(), path.end());
+
+    for(auto node : path)
+        cout << node << " ";
+    cout << endl;
+}
  
 int main()
 {
@@ -45,7 +63,7 @@ int main()
     cout<<"Enter the number of vertices and edges"<<endl;
     cin>>vertices>>edges;
 
-    vector<vector<pair<long long  int,long long int>>>adj(vertices);
+    vector<vector<pair<long long  int,long long int>>>adj(vertices+1);
 
 cout<<"Enter the edges in the format u v w"<<endl;
 
@@ -59,14 +77,21 @@ cout<<"Enter the edges in the format u v w"<<endl;
     int src;
     cout<<"Enter the source vertex"<<endl;
     cin>>src;
+
+    int dest;
+    cout<<"Enter destination vertex: \n";
+    cin >> dest;
+
    
    vector<long long int>distance(vertices,LONG_MAX);
+   vector<int>parent(vertices, -1);
 
-    dijkstra(adj,src,distance);
+    dijkstra(adj,src,distance,parent);
 
-    for(int i=0;i<vertices;i++){
-        cout<<"The shortest distance between "<<src<<" and "<<i<<" is "<<distance[i]<<endl;
-    }
+    cout << "Shortest distance: " << distance[dest] << endl;
+
+     cout << "Path: ";
+    printPath(dest, parent);
     
     return 0;
 }
