@@ -27,7 +27,6 @@ int a,b,c,d;
 cout<<"enter points or value of a,b,c,d to calculate sum\n ";
 cin>>a>>b>>c>>d;
 cout<<presum[c][d]-presum[a-1][d]-presum[c][b-1]+presum[a-1][b-1]<<endl;
-
 }
-    return 0;
+return 0;
 }
