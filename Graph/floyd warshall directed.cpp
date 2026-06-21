@@ -10,10 +10,10 @@ using namespace std;
       for(int i=0;i<v;i++){
           for(int j=0;j<v;j++){
 
-              if(mat[i][j]==-1)
+            if(mat[i][j]==-1)
              mat[i][j]=1e9; 
 
-             if(i==j)  // distance of node to itself is 0
+            if(i==j)  // distance of node to itself is 0
             mat[i][j]=0;
           }
       }
@@ -21,7 +21,7 @@ using namespace std;
       for(int k=0;k<v;k++){
             for(int i=0;i<v;i++){
           for(int j=0;j<v;j++){
-            if(mat[i][k]!=LONG_MAX && mat[k][j]!=LONG_MAX)  //handle negative edge weight
+          //   if(mat[i][k]!=LONG_MAX && mat[k][j]!=LONG_MAX)  //handle negative edge weight
             mat[i][j]=min(mat[i][j],mat[i][k]+mat[k][j]);  
       }
     }

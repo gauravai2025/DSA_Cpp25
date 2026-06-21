@@ -3,9 +3,8 @@ using namespace std;
  
 int main()
 {
- 
-int n;
-cin>>n;
+int n,m;
+cin>>n>>m;
 vector<pair<int,int>>arr(n);
  
 for(int i=0;i<n;i++){
@@ -27,8 +26,8 @@ for(int i=1;i<n;i++){
 }
  
 else{
-    cnt++;
-    prev=arr[i].second;
+cnt++;
+prev=arr[i].second;
 }
  
 }

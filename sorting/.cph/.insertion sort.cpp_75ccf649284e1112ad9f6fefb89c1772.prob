@@ -1,0 +1,1 @@
+{"name":"Local: insertion sort","url":"c:\\Users\\HP\\OneDrive\\Desktop\\DSA_Cpp25\\sorting\\insertion sort.cpp","tests":[{"id":1780403302364,"input":"5\n2 3 4 5 1","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\Users\\HP\\OneDrive\\Desktop\\DSA_Cpp25\\sorting\\insertion sort.cpp","group":"local","local":true}
