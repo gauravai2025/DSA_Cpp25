@@ -1,29 +1,29 @@
 #include<bits/stdc++.h>
 using namespace std;
  
-long long int solve(int n,int x,vector<int>&price,vector<int>&pages,vector<vector<long long int>>&dp,int idx){
+long long int solve(int n,int x,vector<int>&price,vector<int>&pages){
  
 // base case
- 
-if(x<=0 || idx>=n){
-    return 0;
-}
- 
-if(dp[idx][x]!=-1){
- return dp[idx][x];
- 
-}
- 
-long long int max_page=0;
+vector<long long int>prev(x+1,0);
+vector<long long int>curr(x+1,0);
+
+for(int i=1;i<=n;i++){
+ for(int j=1;j<=x;j++){
+    long long int max_page=0;
 // buying the current book
  
-if(x-price[idx]>=0)
-max_page=solve(n,x-price[idx],price,pages,dp,idx+1)+pages[idx];
- 
-// not buying the current book
-max_page=max(max_page,solve(n,x,price,pages,dp,idx+1));
- 
-return dp[idx][x]=max_page;
+     if(j-price[i-1]>=0)
+    max_page=max(prev[j-price[i-1]]+pages[i-1],prev[j]);
+    else
+    max_page=prev[j];
+
+    curr[j]=max_page;
+}
+
+prev=curr;
+}
+
+return prev[x];
  
 }
  
@@ -37,11 +37,10 @@ vector<int>price(n);
 vector<int>pages(n);
  
 for(int i=0;i<n;i++){
-    cin>>price[i]>>pages[i];
+cin>>price[i]>>pages[i];
 }
   
-vector<vector<long long int>>dp(n+1,vector<long long int>(x+1,-1)); // dp[i][j] is the maximum number of pages that can be bought with i books and j money
-cout<<solve(n,x,price,pages,dp,0);
+cout<<solve(n,x,price,pages);
  
 return 0;
 }

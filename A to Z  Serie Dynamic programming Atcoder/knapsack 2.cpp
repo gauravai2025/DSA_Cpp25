@@ -9,14 +9,14 @@ if(amount==0)
 return 0;
 
 if(idx>=n )
-return INT_MAX;
+return LLONG_MAX;
 
  
-if(dp[idx][amount]!=INT_MAX)
+if(dp[idx][amount]!=-1)
  return dp[idx][amount];
  
  
-long long int mnwt=INT_MAX;
+long long int mnwt=LLONG_MAX;
 
 if(amount>=val[idx])
 mnwt=solve(n,wt,val,idx+1,amount-val[idx],dp)+wt[idx];
@@ -43,16 +43,23 @@ for(int i=0;i<n;i++){
     sumval+=val[i];
 }
   
-vector<vector<long long int>>dp(n+1,vector<long long int>(sumval+1,INT_MAX)); // dp[i][j] is the minimum weight that can be achieved with i items and j value
+vector<vector<long long int>>dp(n+1,vector<long long int>(sumval+1,-1)); // dp[i][j] is the minimum weight that can be achieved with i items and j value
 
 
-for(int i=sumval;i>=0;i--){
+// for(int i=sumval;i>=0;i--){
 
- if(solve(n,wt,val,0,i,dp)<=w){
-    cout<<i<<endl;
-    break;
+solve(n,wt,val,0,sumval,dp);
+int ans=-1;
+
+for(int i=0;i<n;i++){
+    for(int j=1;j<=sumval;j++){
+        if(dp[i][j]<=w){
+            ans=max(ans,j);
+        }
     }
 }
+
+cout<<ans;
 
 return 0;
 }

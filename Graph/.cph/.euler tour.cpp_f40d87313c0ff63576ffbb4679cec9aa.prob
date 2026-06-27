@@ -1,0 +1,1 @@
+{"name":"Local: euler tour","url":"c:\\Users\\HP\\OneDrive\\Desktop\\DSA_Cpp25\\Graph\\euler tour.cpp","tests":[{"id":1782539317535,"input":"4\n1 2\n4 2\n3 1\n","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\Users\\HP\\OneDrive\\Desktop\\DSA_Cpp25\\Graph\\euler tour.cpp","group":"local","local":true}

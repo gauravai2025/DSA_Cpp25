@@ -22,7 +22,6 @@ int findpathcompression(int node){
     return node;
     // path compression
     return parent[node]= findpathcompression(parent[node]);
-
 }
 
 void Unionbyrank(int node1,int node2){
@@ -44,7 +43,6 @@ if(Rank[par2]>Rank[par1])
    Rank[par1]++;
    }
 }
-
  
 int main()
 {

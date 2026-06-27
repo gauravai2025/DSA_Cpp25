@@ -7,7 +7,7 @@ int main()
 long long int a,b;
 cout<<"Enter range to generate random number: ";
 cin>>a>>b;
-long long int randomnum=rand()%(b-a)+a;
+long long int randomnum=rand()%(b-a+1)+a;
 cout<<randomnum;
 return 0;
 }
