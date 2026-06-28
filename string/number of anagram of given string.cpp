@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 
- #define mod 1000000007
+#define mod 1000000007
 const int  N= 1e6 +5;
 typedef long long ll;
 
@@ -48,32 +48,28 @@ void inversefactorial()
     }
 }
 
-ll combination(ll n, ll r, ll m)
-{
-    if(r>n)
-    return 0;
-    ll val1 = fact[n];
-    ll val2 = invfact[n - r];
-    ll val3 = invfact[r];
-    return (((val1 * val2) % m) * val3) % m;
-}
-
 int main()
 {
+string str;
+cout<<"enter string: \n";
+cin>>str;
 
- int q;
-    cout<<"enter number of  query\n";
-    cin>>q;
+factorial();
+inversefactorial();
+int size=str.size();
+vector<int>feq(26,0);
 
-    factorial();
-    inversefactorial();
+for(int i=0;i<size;i++){
+    feq[str[i]-'a']++;
+}
 
-  cout<<"enter n and r for each query \n";
+ll ans=fact[size]%mod;
 
-    while(q--){
-    ll n,r;
-    cin>>n>>r;
-    cout<<combination(n,r,mod)<<endl;
-    }
-    return 0;
+for(int i=0;i<26;i++){
+    if(feq[i]>0)
+   ans*=invfact[feq[i]]%mod;
+   ans%=mod; 
+}
+cout<<ans<<endl;
+return 0;
 }

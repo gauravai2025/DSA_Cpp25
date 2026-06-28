@@ -8,11 +8,11 @@ int permutationCoeff(int n, int k){
     long long int res=1;
     
     for(int i=0;i<k;i++){
-        res*=(n-i);
+        res*=(n-i)%mod;
         res%=mod;
     }
     
-    return res;
+    return res%mod;
 
     }
  
@@ -25,6 +25,5 @@ cin>>n>>k;
 
 cout<<"nPr is : "<<endl;
 cout<<permutationCoeff(n,k)<<endl;
- 
-    return 0;
+ return 0;
 }
