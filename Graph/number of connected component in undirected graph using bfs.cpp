@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
- void bfs(int source, map<int,bool>&visited,  map<int,vector<int>>&adj){
+ void bfs(int source, map<int,bool>&visited,map<int,vector<int>>&adj){
          
          queue<int>q;
          q.push(source);
