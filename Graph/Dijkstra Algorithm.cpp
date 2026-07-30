@@ -5,7 +5,7 @@ using namespace std;
 
 // Note: The Graph doesn't contain any negative weight edge.
 
-vector<int> dijkstra(vector<vector<pair<long long int,long long int>>>&adj, int src,vector<long long int>&dist) {
+void dijkstra(vector<vector<pair<long long int,long long int>>>&adj, int src,vector<long long int>&dist) {
       
         int vertices=adj.size();
         set<pair<long long int,long long int>>st;
@@ -36,7 +36,6 @@ vector<int> dijkstra(vector<vector<pair<long long int,long long int>>>&adj, int 
             }
         }
         
-        return dist;
     }
  
 int main()
