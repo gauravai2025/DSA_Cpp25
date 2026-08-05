@@ -1,0 +1,1 @@
+{"name":"Local: Range Minimum Query","url":"c:\\Users\\HP\\OneDrive\\Desktop\\DSA_Cpp25\\Spoj\\Range Minimum Query.cpp","tests":[{"id":1785873122069,"input":"3\n1 4 1\n2\n1 1\n1 2","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\Users\\HP\\OneDrive\\Desktop\\DSA_Cpp25\\Spoj\\Range Minimum Query.cpp","group":"local","local":true}

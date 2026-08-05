@@ -22,8 +22,8 @@ void update_segment_tree( int val,int i,int idx,int l,int r,vector<long long int
     // reach the leaf node to update the value
 
     if(l==r){
-       seg_tree[idx]=val; 
-        return;
+    seg_tree[idx]+=val; 
+    return;
     }
 
     int mid=(l+r)/2;
@@ -63,11 +63,9 @@ long long int query_segment_tree( int x,int y,int idx,int l,int r,vector<long lo
 int main()
 {
 
- int size;
- cout<<"Enter the size of the array: ";
-    cin>>size;
+ int size,q;
+    cin>>size>>q;
     vector<int> arr(size);
-    cout<<"Enter the elements of the array: ";
 
     for(int i=0;i<size;i++)
     {
@@ -79,35 +77,25 @@ int main()
     build_segment_tree(arr,0,0,size-1,seg_tree);
     vector<long long int>ans;
     
-    int q;
-    cout<<"Enter the number of queries: ";
-    cin>>q;
-
-    cout<<"enter query in  format 1 for update and 2 for query:";
     int type,val,i,l,r;
       
       while(q--){
         cin>>type;
 
-        if(type==1){
+        if(type==0){
           cin>>i>>val; 
-          i--;
           update_segment_tree(val,i,0,0,size-1,seg_tree); 
         }
 
         else{
-          cin>>l>>r;
-          l--;r--;
-        ans.push_back(query_segment_tree(l,r,0,0,size-1,seg_tree));
+        cin>>l>>r;
+        ans.push_back(query_segment_tree(l,r-1,0,0,size-1,seg_tree));
 
         }
       }
 
-cout<<endl;
-      cout<<"The sum of the given range after query processed is: \n";
-
         for(auto i:ans){
-            cout<<i<<" ";
+        cout<<i<<endl;
         }
     return 0;
 }

@@ -2,6 +2,23 @@
 using namespace std;
 
 
+// ### Range Minimum with Swaps
+
+// You are given an array **A** of **N** integers, indexed from **1** to **N**.
+
+// Your task is to process **Q** operations on the array. Each operation is one of the following:
+
+// * **Type 1:** `1 i j`
+//   Swap the values at indices **i** and **j**, i.e., exchange `A[i]` and `A[j]`.
+
+// * **Type 2:** `2 L R`
+//   Determine and print the **minimum value** present in the subarray `A[L...R]` (inclusive).
+
+// The array is updated after every swap operation, so all future operations are performed on the modified array.
+
+// For each query of **Type 2**, output the minimum element in the specified range.
+
+
 void build_segment_tree( vector<int> &arr,int idx,int l,int r,vector<long long int>&seg_tree){
     // base case single element
 
@@ -15,25 +32,25 @@ void build_segment_tree( vector<int> &arr,int idx,int l,int r,vector<long long i
      build_segment_tree(arr,2*idx+1,l,mid,seg_tree);
      build_segment_tree(arr,2*idx+2,mid+1,r,seg_tree);
 
-     seg_tree[idx]=seg_tree[2*idx+1]+seg_tree[2*idx+2];
+     seg_tree[idx]=min(seg_tree[2*idx+1],seg_tree[2*idx+2]);
 }
 
-void update_segment_tree( int val,int i,int idx,int l,int r,vector<long long int>&seg_tree){
+void update_segment_tree(int i,int idx,int val,int l,int r,vector<long long int>&seg_tree){
     // reach the leaf node to update the value
 
     if(l==r){
-       seg_tree[idx]=val; 
-        return;
+    seg_tree[i]=val; 
+    return;
     }
 
     int mid=(l+r)/2;
 
-    if(i<=mid)
-     update_segment_tree(val,i,2*idx+1,l,mid,seg_tree);
+    if(idx<=mid)
+     update_segment_tree(2*i+1,idx,val,l,mid,seg_tree);
      else
-     update_segment_tree(val,i,2*idx+2,mid+1,r,seg_tree);
+     update_segment_tree(2*i+2,idx,val,mid+1,r,seg_tree);
 
-     seg_tree[idx]=seg_tree[2*idx+1]+seg_tree[2*idx+2];
+     seg_tree[i]=min(seg_tree[2*i+1],seg_tree[2*i+2]);
 }
 
 
@@ -42,7 +59,7 @@ long long int query_segment_tree( int x,int y,int idx,int l,int r,vector<long lo
 // no overlap
     if(l>y || r<x){
       
-    return 0;
+    return LLONG_MAX;
     }
       
       // complete overlap
@@ -55,7 +72,7 @@ long long int query_segment_tree( int x,int y,int idx,int l,int r,vector<long lo
 
     else{ 
   int mid=(l+r)/2;
- return query_segment_tree(x,y,2*idx+1,l,mid,seg_tree)+query_segment_tree(x,y,2*idx+2,mid+1,r,seg_tree);
+ return min(query_segment_tree(x,y,2*idx+1,l,mid,seg_tree),query_segment_tree(x,y,2*idx+2,mid+1,r,seg_tree));
 
     }   
 }
@@ -84,30 +101,30 @@ int main()
     cin>>q;
 
     cout<<"enter query in  format 1 for update and 2 for query:";
-    int type,val,i,l,r;
+    int type,l,r;
       
       while(q--){
-        cin>>type;
+
+        cin>>type>>l>>r;
+        l--;r--;
 
         if(type==1){
-          cin>>i>>val; 
-          i--;
-          update_segment_tree(val,i,0,0,size-1,seg_tree); 
+        update_segment_tree(0,l,arr[r],0,size-1,seg_tree); 
+        update_segment_tree(0,r,arr[l],0,size-1,seg_tree); 
+        swap(arr[l],arr[r]);
         }
 
-        else{
-          cin>>l>>r;
-          l--;r--;
+        else
         ans.push_back(query_segment_tree(l,r,0,0,size-1,seg_tree));
-
-        }
       }
 
-cout<<endl;
-      cout<<"The sum of the given range after query processed is: \n";
+      cout<<endl;
+      cout<<"The minimum in  given range after query processed is: \n";
 
         for(auto i:ans){
             cout<<i<<" ";
         }
+    
+
     return 0;
 }
