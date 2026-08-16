@@ -76,17 +76,14 @@ int main()
     cout<<"enter source:\n";
     cin>>src;
 
-    
     int dest;
     cout<<"enter destination:\n";
     cin>>dest;
-
 
     vector<int> dist(vertices+1, INT_MAX);
     vector<int> parent(vertices+1, -1);
 
     shortestPath(adj,dist,parent,vertices,src);
-
     printPath(dest, parent, dist);
 
     return 0;

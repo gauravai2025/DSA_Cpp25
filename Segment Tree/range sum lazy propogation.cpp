@@ -57,7 +57,7 @@ void update_segment_tree(long long int val,int st,int end,int idx,int l,int r,ve
 }
 
 
-long long int query_segment_tree( int i,int idx,int l,int r,vector<long long int>&seg_tree,vector<long long int>&lazy){
+long long int query_segment_tree( int x,int y,int idx,int l,int r,vector<long long int>&seg_tree,vector<long long int>&lazy){
 
 
      // update earlier lazy array
@@ -75,24 +75,33 @@ long long int query_segment_tree( int i,int idx,int l,int r,vector<long long int
     }
 
 // no overlap
-    if(l==r){
-    return seg_tree[idx];
+    if(l>y || r<x){
+    return 0;
     }
       
-  int mid=(l+r)/2;
+    // complete overlap
+      
+    if(l>=x && r<=y){
+     return seg_tree[idx];
+    }
 
-  if(i<=mid)
-  return query_segment_tree(i,2*idx+1,l,mid,seg_tree,lazy);
-  else
-  return query_segment_tree(i,2*idx+2,mid+1,r,seg_tree,lazy);
+    // partial overlap
+
+    else{ 
+  int mid=(l+r)/2;
+ return query_segment_tree(x,y,2*idx+1,l,mid,seg_tree,lazy)+query_segment_tree(x,y,2*idx+2,mid+1,r,seg_tree,lazy);
+
+}   
 }
  
 int main()
 {
 
-   int size,q;
-    cin>>size>>q;
+ int size;
+ cout<<"Enter the size of the array: ";
+    cin>>size;
     vector<int> arr(size);
+    cout<<"Enter the elements of the array: ";
 
     for(int i=0;i<size;i++)
     {
@@ -105,27 +114,32 @@ int main()
     build_segment_tree(arr,0,0,size-1,seg_tree);
     vector<long long int>ans;
     
+    int q;
+    cout<<"Enter the number of queries: ";
+    cin>>q;
+
+    cout<<"enter query in  format 1 for update and 2 for query:";
     int type,val,i,l,r;
       
       while(q--){
         cin>>type;
-        
-        if(type==1){
-        cin>>l>>r;
+         cin>>l>>r;
           l--;r--;
+        if(type==1){
           cin>>val; 
           update_segment_tree(val,l,r,0,0,size-1,seg_tree,lazy); 
         }
         else{
-        int pos;
-        cin>>pos;    
-        ans.push_back(query_segment_tree(pos-1,0,0,size-1,seg_tree,lazy));
+        ans.push_back(query_segment_tree(l,r,0,0,size-1,seg_tree,lazy));
+
         }
       }
 
-        for(auto i:ans){
-        cout<<i<<endl;
-        }
+       cout<<endl;
+      cout<<"The sum of the given range after query processed is: \n";
 
+        for(auto i:ans){
+            cout<<i<<" ";
+        }
     return 0;
 }

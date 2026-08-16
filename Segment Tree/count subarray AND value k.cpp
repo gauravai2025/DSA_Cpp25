@@ -23,8 +23,8 @@ typedef vector<ll> vl;
 void build_seg_tree(vl& arr, vl& seg_tree, int idx, int st, int end) {
     // Leaf node
     if (st == end) {
-        seg_tree[idx] = arr[st];
-        return;
+    seg_tree[idx] = arr[st];
+    return;
     }
 
     ll mid = (st + end) / 2;
