@@ -122,7 +122,6 @@ int main()
         ans.push_back(query_segment_tree(pos-1,0,0,size-1,seg_tree,lazy));
         }
       }
-
         for(auto i:ans){
         cout<<i<<endl;
         }
