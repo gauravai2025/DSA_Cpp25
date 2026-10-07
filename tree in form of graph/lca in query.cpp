@@ -71,7 +71,6 @@ cin>>vertices>>q;
 vector<int>parent(vertices+1);
 vector<vector<int>>adj(vertices+1);
 
-
 for(int i=2;i<=vertices;i++){
   cin>>parent[i];
   adj[parent[i]].push_back(i);

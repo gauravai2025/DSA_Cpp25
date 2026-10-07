@@ -4,7 +4,7 @@ using namespace std;
 long long int pow(long long int b,long long int p){
     long long int res=1;
     
-    while(p){
+  while(p){
   
   if(p&1)
 res*=b;
@@ -53,8 +53,5 @@ cout<<"enter number\n";
     int n;
     cin>>n;
   cnt_sum(n);
- 
- 
- 
     return 0;
 }

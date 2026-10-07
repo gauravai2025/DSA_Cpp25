@@ -24,7 +24,6 @@ using namespace std;
                     else
                     lcm=(lcm*coins[j])/__gcd(lcm,1ll*coins[j]);
                 }
-
             }
 
            if(cntbit&1)
@@ -32,12 +31,10 @@ using namespace std;
            else
            cnt-=mid/lcm;
         }
-
         return cnt>=k;
-
     }
 
-    long long findKthSmallest(vector<int>& coins, int k) {
+    long long findKthSmallest(vector<int>& coins, int k){
         
         long long int ans=-1;
 
@@ -48,21 +45,17 @@ using namespace std;
         long long int mid=st+(end-st)/2;
 
         if(ispossible(mid,k,coins)){
-            ans=mid;
-            end=mid-1;
+        ans=mid;
+        end=mid-1;
         }
-
         else
         st=mid+1;
-
         }
-
     return ans;
     }
 
 int main()
 {
-
 int size;
 cout<<"Enter the size of coin array\n";
 cin>>size;
